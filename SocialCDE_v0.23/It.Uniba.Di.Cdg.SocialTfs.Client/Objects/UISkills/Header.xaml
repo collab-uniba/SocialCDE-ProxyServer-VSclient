@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UISkills.Header"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             Width="Auto" Height="Auto"
+             >
+    <StackPanel Orientation="Horizontal">
+        <Image Width="75" Height="75" VerticalAlignment="Top" Margin="10"></Image>
+        <StackPanel>
+            <TextBlock Margin="10">Nome cognome</TextBlock>
+            <TextBlock Margin="10">Nome cognome</TextBlock>
+            <TextBlock Margin="10">Nome cognome</TextBlock>
+        </StackPanel>
+        <StackPanel>
+            <Image Width="30" Height="30" Margin="10"></Image>
+            <Image Width="30" Height="30" Margin="10"></Image>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

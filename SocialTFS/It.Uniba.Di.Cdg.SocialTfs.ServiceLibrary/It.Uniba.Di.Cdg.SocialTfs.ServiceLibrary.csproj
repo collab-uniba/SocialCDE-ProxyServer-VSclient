@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2A172ADC-AE88-4848-BA20-96659324986B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary</RootNamespace>
+    <AssemblyName>It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.TeamFoundation.Client, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>TFSLibraries\Microsoft.TeamFoundation.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>TFSLibraries\Microsoft.TeamFoundation.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.VersionControl.Client, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>TFSLibraries\Microsoft.TeamFoundation.VersionControl.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.VersionControl.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Client, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>TFSLibraries\Microsoft.TeamFoundation.WorkItemTracking.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Client.QueryLanguage, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Proxy, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Services.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json.Net35, Version=4.0.2.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>JsonNet\Newtonsoft.Json.Net35.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CodePlex\CodePlexService.cs" />
+    <Compile Include="Facebook\FacebookService.cs" />
+    <Compile Include="Facebook\FacebookPost.cs" />
+    <Compile Include="Facebook\FacebookUri.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>FacebookUri.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Facebook\FacebookUser.cs" />
+    <Compile Include="FeaturesManager.cs" />
+    <Compile Include="GitHub\GitHubSetting.cs" />
+    <Compile Include="GitHub\GitHubCommit.cs" />
+    <Compile Include="GitHub\GitHubObject.cs" />
+    <Compile Include="GitHub\GitHubOrganization.cs" />
+    <Compile Include="GitHub\GitHubRepositories.cs" />
+    <Compile Include="GitHub\GitHubService.cs" />
+    <Compile Include="GitHub\GitHubToken.cs" />
+    <Compile Include="GitHub\GitHubUser.cs" />
+    <Compile Include="IPost.cs" />
+    <Compile Include="IService.cs" />
+    <Compile Include="IUser.cs" />
+    <Compile Include="Linkedin\LinkedInService.cs" />
+    <Compile Include="Linkedin\LinkedInSkills.cs" />
+    <Compile Include="Linkedin\LinkedInToken.cs" />
+    <Compile Include="Linkedin\LinkedInUri.cs" />
+    <Compile Include="Linkedin\LinkedInUri.Designer.cs">
+      <DependentUpon>LinkedInUri.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Linkedin\LinkedInUser.cs" />
+    <Compile Include="OAuth2Service.cs" />
+    <Compile Include="OAuthAccessData.cs" />
+    <Compile Include="OAuth1Service.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceFactory.cs" />
+    <Compile Include="StatusNet\StatusNetService.cs" />
+    <Compile Include="StatusNet\StatusNetPost.cs" />
+    <Compile Include="StatusNet\StatusNetUri.Designer.cs">
+      <DependentUpon>StatusNetUri.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="StatusNet\StatusNetUser.cs" />
+    <Compile Include="TeamFoundationServer\TeamFoundationServerService.cs" />
+    <Compile Include="TeamFoundationServer\TeamFoundationServerUser.cs" />
+    <Compile Include="Twitter\TwitterService.cs" />
+    <Compile Include="Twitter\TwitterPost.cs" />
+    <Compile Include="Twitter\TwitterUri.Designer.cs">
+      <DependentUpon>TwitterUri.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Twitter\TwitterUser.cs" />
+    <Compile Include="Yammer\YammerPost.cs" />
+    <Compile Include="Yammer\YammerService.cs" />
+    <Compile Include="Yammer\YammerUri.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>YammerUri.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Yammer\YammerUser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Facebook\FacebookUri.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>FacebookUri.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Linkedin\LinkedInUri.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>LinkedInUri.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="StatusNet\StatusNetUri.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>StatusNetUri.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Twitter\TwitterUri.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>TwitterUri.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Yammer\YammerUri.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>YammerUri.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="JsonNet\Newtonsoft.Json.Net35.dll" />
+    <Content Include="JsonNet\Newtonsoft.Json.Net35.pdb" />
+    <Content Include="JsonNet\Newtonsoft.Json.Net35.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\It.Uniba.Di.Cdg.SocialTfs.OAuthLibrary\It.Uniba.Di.Cdg.SocialTfs.OAuthLibrary.csproj">
+      <Project>{00640305-5A8D-46FB-AC7D-7AE68A04B1B3}</Project>
+      <Name>It.Uniba.Di.Cdg.SocialTfs.OAuthLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\It.Uniba.Di.Cdg.SocialTfs.SharedLibrary\It.Uniba.Di.Cdg.SocialTfs.SharedLibrary.csproj">
+      <Project>{74053378-ACDA-46C4-A41C-C37F9C1B739E}</Project>
+      <Name>It.Uniba.Di.Cdg.SocialTfs.SharedLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,211 @@
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SocialTFSModelStoreContainer" CdmEntityContainer="SocialTFSEntities">
+    <EntitySetMapping Name="Avatar">
+      <EntityTypeMapping TypeName="SocialTFSModel.Avatar">
+        <MappingFragment StoreEntitySet="Avatar">
+          <ScalarProperty Name="pk_uri" ColumnName="pk_uri" />
+          <ScalarProperty Name="fk_chosenFeature" ColumnName="fk_chosenFeature" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChosenFeature">
+      <EntityTypeMapping TypeName="SocialTFSModel.ChosenFeature">
+        <MappingFragment StoreEntitySet="ChosenFeature">
+          <ScalarProperty Name="pk_id" ColumnName="pk_id" />
+          <ScalarProperty Name="fk_user" ColumnName="fk_user" />
+          <ScalarProperty Name="fk_serviceInstance" ColumnName="fk_serviceInstance" />
+          <ScalarProperty Name="fk_feature" ColumnName="fk_feature" />
+          <ScalarProperty Name="lastDownload" ColumnName="lastDownload" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DynamicFriend">
+      <EntityTypeMapping TypeName="SocialTFSModel.DynamicFriend">
+        <MappingFragment StoreEntitySet="DynamicFriend">
+          <ScalarProperty Name="pk_id" ColumnName="pk_id" />
+          <ScalarProperty Name="fk_user" ColumnName="fk_user" />
+          <ScalarProperty Name="fk_chosenFeature" ColumnName="fk_chosenFeature" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Educations">
+      <EntityTypeMapping TypeName="SocialTFSModel.Educations">
+        <MappingFragment StoreEntitySet="Educations">
+          <ScalarProperty Name="fk_chosenFeature" ColumnName="fk_chosenFeature" />
+          <ScalarProperty Name="pk_id" ColumnName="pk_id" />
+          <ScalarProperty Name="fieldOfStudy" ColumnName="fieldOfStudy" />
+          <ScalarProperty Name="schoolName" ColumnName="schoolName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feature">
+      <EntityTypeMapping TypeName="SocialTFSModel.Feature">
+        <MappingFragment StoreEntitySet="Feature">
+          <ScalarProperty Name="pk_name" ColumnName="pk_name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="public" ColumnName="public" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeatureScore">
+      <EntityTypeMapping TypeName="SocialTFSModel.FeatureScore">
+        <MappingFragment StoreEntitySet="FeatureScore">
+          <ScalarProperty Name="pk_fk_serviceInstance" ColumnName="pk_fk_serviceInstance" />
+          <ScalarProperty Name="pk_fk_feature" ColumnName="pk_fk_feature" />
+          <ScalarProperty Name="score" ColumnName="score" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hidden">
+      <EntityTypeMapping TypeName="SocialTFSModel.Hidden">
+        <MappingFragment StoreEntitySet="Hidden">
+          <ScalarProperty Name="pk_id" ColumnName="pk_id" />
+          <ScalarProperty Name="fk_user" ColumnName="fk_user" />
+          <ScalarProperty Name="fk_friend" ColumnName="fk_friend" />
+          <ScalarProperty Name="timeline" ColumnName="timeline" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InteractiveFriend">
+      <EntityTypeMapping TypeName="SocialTFSModel.InteractiveFriend">
+        <MappingFragment StoreEntitySet="InteractiveFriend">
+          <ScalarProperty Name="pk_id" ColumnName="pk_id" />
+          <ScalarProperty Name="fk_user" ColumnName="fk_user" />
+          <ScalarProperty Name="fk_chosenFeature" ColumnName="fk_chosenFeature" />
+          <ScalarProperty Name="collection" ColumnName="collection" />
+          <ScalarProperty Name="interactiveObject" ColumnName="interactiveObject" />
+          <ScalarProperty Name="objectType" ColumnName="objectType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Positions">
+      <EntityTypeMapping TypeName="SocialTFSModel.Positions">
+        <MappingFragment StoreEntitySet="Positions">
+          <ScalarProperty Name="fk_chosenFeature" ColumnName="fk_chosenFeature" />
+          <ScalarProperty Name="pk_id" ColumnName="pk_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="industry" ColumnName="industry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Post">
+      <EntityTypeMapping TypeName="SocialTFSModel.Post">
+        <MappingFragment StoreEntitySet="Post">
+          <ScalarProperty Name="pk_id" ColumnName="pk_id" />
+          <ScalarProperty Name="fk_chosenFeature" ColumnName="fk_chosenFeature" />
+          <ScalarProperty Name="idOnService" ColumnName="idOnService" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="createAt" ColumnName="createAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PreregisteredService">
+      <EntityTypeMapping TypeName="SocialTFSModel.PreregisteredService">
+        <MappingFragment StoreEntitySet="PreregisteredService">
+          <ScalarProperty Name="pk_id" ColumnName="pk_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="host" ColumnName="host" />
+          <ScalarProperty Name="service" ColumnName="service" />
+          <ScalarProperty Name="consumerKey" ColumnName="consumerKey" />
+          <ScalarProperty Name="consumerSecret" ColumnName="consumerSecret" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registration">
+      <EntityTypeMapping TypeName="SocialTFSModel.Registration">
+        <MappingFragment StoreEntitySet="Registration">
+          <ScalarProperty Name="pk_fk_user" ColumnName="pk_fk_user" />
+          <ScalarProperty Name="pk_fk_serviceInstance" ColumnName="pk_fk_serviceInstance" />
+          <ScalarProperty Name="nameOnService" ColumnName="nameOnService" />
+          <ScalarProperty Name="idOnService" ColumnName="idOnService" />
+          <ScalarProperty Name="accessToken" ColumnName="accessToken" />
+          <ScalarProperty Name="accessSecret" ColumnName="accessSecret" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Service">
+      <EntityTypeMapping TypeName="SocialTFSModel.Service">
+        <MappingFragment StoreEntitySet="Service">
+          <ScalarProperty Name="pk_id" ColumnName="pk_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="requestToken" ColumnName="requestToken" />
+          <ScalarProperty Name="authorize" ColumnName="authorize" />
+          <ScalarProperty Name="accessToken" ColumnName="accessToken" />
+          <ScalarProperty Name="version" ColumnName="version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceInstance">
+      <EntityTypeMapping TypeName="SocialTFSModel.ServiceInstance">
+        <MappingFragment StoreEntitySet="ServiceInstance">
+          <ScalarProperty Name="pk_id" ColumnName="pk_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="host" ColumnName="host" />
+          <ScalarProperty Name="fk_service" ColumnName="fk_service" />
+          <ScalarProperty Name="consumerKey" ColumnName="consumerKey" />
+          <ScalarProperty Name="consumerSecret" ColumnName="consumerSecret" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Setting">
+      <EntityTypeMapping TypeName="SocialTFSModel.Setting">
+        <MappingFragment StoreEntitySet="Setting">
+          <ScalarProperty Name="key" ColumnName="key" />
+          <ScalarProperty Name="value" ColumnName="value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Skills">
+      <EntityTypeMapping TypeName="SocialTFSModel.Skills">
+        <MappingFragment StoreEntitySet="Skills">
+          <ScalarProperty Name="pk_fk_chosenFeature" ColumnName="pk_fk_chosenFeature" />
+          <ScalarProperty Name="pk_skill" ColumnName="pk_skill" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StaticFriend">
+      <EntityTypeMapping TypeName="SocialTFSModel.StaticFriend">
+        <MappingFragment StoreEntitySet="StaticFriend">
+          <ScalarProperty Name="pk_id" ColumnName="pk_id" />
+          <ScalarProperty Name="fk_user" ColumnName="fk_user" />
+          <ScalarProperty Name="fk_friend" ColumnName="fk_friend" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suggestion">
+      <EntityTypeMapping TypeName="SocialTFSModel.Suggestion">
+        <MappingFragment StoreEntitySet="Suggestion">
+          <ScalarProperty Name="pk_id" ColumnName="pk_id" />
+          <ScalarProperty Name="user" ColumnName="user" />
+          <ScalarProperty Name="fk_chosenFeature" ColumnName="fk_chosenFeature" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SocialTFSModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="SocialTFSModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="pk_id" ColumnName="pk_id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="avatar" ColumnName="avatar" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

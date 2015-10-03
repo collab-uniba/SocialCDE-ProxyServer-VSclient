@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.Yammer" GeneratedClassName="YammerUri">
+  <Profiles />
+  <Settings>
+    <Setting Name="VERIFY_CREDENTIALS" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/api/v1/users/current.json</Value>
+    </Setting>
+    <Setting Name="USER_TIMELINE" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/api/v1/messages/sent.json</Value>
+    </Setting>
+    <Setting Name="USER" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/api/v1/users/</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

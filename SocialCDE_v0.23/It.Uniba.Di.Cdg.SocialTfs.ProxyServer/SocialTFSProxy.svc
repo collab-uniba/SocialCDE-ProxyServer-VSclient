@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="It.Uniba.Di.Cdg.SocialTfs.ProxyServer.SocialTFSProxy" CodeBehind="SocialTFSProxy.svc.cs" %>

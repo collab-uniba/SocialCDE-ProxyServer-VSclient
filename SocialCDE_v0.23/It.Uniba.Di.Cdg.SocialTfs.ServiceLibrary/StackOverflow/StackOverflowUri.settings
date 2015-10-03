@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.StackOverflow" GeneratedClassName="StackOverflowUri">
+  <Profiles />
+  <Settings>
+    <Setting Name="STACKSCORE" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/2.2/me?filter=!G*lQlKqwAH*.cLrV2K45DsH1BU</Value>
+    </Setting>
+    <Setting Name="CREDENTIALS" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/2.2/me?filter=!23IiyZnRyYmQ4bPZYWRA1</Value>
+    </Setting>
+    <Setting Name="TAGS" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/2.2/me/tags?filter=!*MPoAL(IzytfB*M)</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

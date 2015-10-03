@@ -1,0 +1,27 @@
+﻿<local:UIPanel x:Class="It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIProfileView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:local="clr-namespace:It.Uniba.Di.Cdg.SocialTfs.Client.Panels"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             Background="#FFC2CCDB">
+
+    <!--<StackPanel Background="White" Grid.Column="1" 
+                        ScrollViewer.VerticalScrollBarVisibility="Auto" >-->
+
+        <Grid>
+        <ScrollViewer Name="ServicesScroll"  CanContentScroll="True" Grid.Row="2" Background="White" 
+                      VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Grid Name="SkillsPanel" 
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  >
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+
+    <!--<WrapPanel 
+                           Margin="0,0,0,0" >
+    </WrapPanel>-->
+
+    <!--</StackPanel>-->
+</local:UIPanel>

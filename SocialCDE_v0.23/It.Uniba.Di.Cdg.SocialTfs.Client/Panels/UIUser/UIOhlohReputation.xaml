@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIUser.UIOhlohReputation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:my="clr-namespace:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIUser" 
+             Visibility="Visible">
+    <StackPanel Margin="20">
+        <Expander Header="Ohloh score" Foreground="Gray" VerticalAlignment="Top" 
+                  FontSize="14" IsExpanded="False">
+            <StackPanel Margin="15,0">
+                <Image Width="200" Height="35" 
+                       Source="/It.Uniba.Di.Cdg.SocialTfs.Client;component/Images/UIUser/ohloh_scritta.png" Margin="0" HorizontalAlignment="Center"></Image>
+                <Separator></Separator>
+                <StackPanel Margin="10,0">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Kudos:" Width="75" FontWeight="SemiBold" FontSize="12"></Label>
+                        <Label Name="lblkudoscore" Content="300" FontSize="12"></Label>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Kudo rank:" Width="75" FontWeight="SemiBold" FontSize="12"></Label>
+                        <Label Name="lblkudorank" Content="300" FontSize="12"></Label>
+                    </StackPanel>
+                    <StackPanel Margin="10,0">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Big Cheese" Width="70" FontWeight="SemiBold" Focusable="False" HorizontalContentAlignment="Center" Margin="20,0,30,0" FontSize="12"></Label>
+                            <Label Content="Org Man" Width="70" FontWeight="SemiBold" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" FontSize="12"></Label>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="25" Height="25" Source="/It.Uniba.Di.Cdg.SocialTfs.Client;component/Images/UIUser/bigcheese.png" Margin="35,0,0,0"></Image>
+                            <Label Content="0" Name="lblcheese" Width="23" HorizontalContentAlignment="Center" Margin="0,0,50,0" FontSize="12"></Label>
+                            <Image Width="25" Height="25" Source="/It.Uniba.Di.Cdg.SocialTfs.Client;component/Images/UIUser/orgman.png"></Image>
+                            <Label Content="0" Name="lblorgman" Width="23" HorizontalContentAlignment="Center" FontSize="12"></Label>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Stacker" Width="70" FontWeight="SemiBold" Margin="20,0,35,0" HorizontalContentAlignment="Center" FontSize="12"></Label>
+                            <Label Content="FOSSer" Width="70" FontWeight="SemiBold" HorizontalContentAlignment="Center" FontSize="12"></Label>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="25" Height="25" Source="/It.Uniba.Di.Cdg.SocialTfs.Client;component/Images/UIUser/stacker.png" Margin="35,0,0,0"></Image>
+                            <Label Content="2" Name="lblstacker" Width="23" HorizontalContentAlignment="Center" Margin="0,0,50,0"></Label>
+                            <Image Width="25" Height="25" Source="/It.Uniba.Di.Cdg.SocialTfs.Client;component/Images/UIUser/fosser.png"></Image>
+                            <Label Content="2" Name="lblfosser" Width="23" HorizontalContentAlignment="Center"></Label>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"></StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Expander>
+        <Separator></Separator>
+    </StackPanel>
+</UserControl>

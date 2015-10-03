@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIUser.UIDevelopers"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:uiuser="clr-namespace:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIUser"
+             mc:Ignorable="d" 
+             >
+    
+    <!--d:DesignHeight="285" d:DesignWidth="285"-->
+ 
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top">
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/It.Uniba.Di.Cdg.SocialTfs.Client;component/Images/Wallpaper.png" Stretch="UniformToFill" TileMode="None" />    
+        </Grid.Background>
+
+       
+        
+            <Grid.RowDefinitions>
+                
+                <RowDefinition ></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <uiuser:UIHeader x:Name="uiheader" 
+                         Grid.Row="0"
+                             VerticalAlignment="Top"></uiuser:UIHeader>
+        <uiuser:UIExperience x:Name="uiexperiences"
+                             Grid.Row="1" VerticalAlignment="Top"></uiuser:UIExperience>
+            <uiuser:UISkillExp x:Name="uiskills"
+                           Grid.Row="2" VerticalAlignment="Top"></uiuser:UISkillExp>
+            <uiuser:UIEducation x:Name="uieducations"
+                            Grid.Row="3" VerticalAlignment="Top"></uiuser:UIEducation>
+        <uiuser:UIStackOverflowReputation x:Name="uistackoverflowreputation" 
+                            Grid.Row="4" VerticalAlignment="Top"></uiuser:UIStackOverflowReputation>
+        <uiuser:UIOhlohReputation x:Name="uiohlohreputation"
+                            Grid.Row="5" VerticalAlignment="Top"></uiuser:UIOhlohReputation>
+        <uiuser:UICoderwallReputation x:Name="uicoderwallreputation"
+                            Grid.Row="6" VerticalAlignment="Top"></uiuser:UICoderwallReputation>
+        <uiuser:UILinkedInReputation x:Name="uilinkedinreputation"
+                            Grid.Row="7" VerticalAlignment="Top"></uiuser:UILinkedInReputation>
+    </Grid>
+    
+</UserControl>

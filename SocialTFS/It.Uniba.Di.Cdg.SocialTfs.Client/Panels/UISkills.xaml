@@ -1,0 +1,20 @@
+﻿<local:UIPanel x:Class="It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UISkills"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:local="clr-namespace:It.Uniba.Di.Cdg.SocialTfs.Client.Panels"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             Background="#FFC2CCDB">
+    <Grid>
+        <ScrollViewer Name="ServicesScroll"  CanContentScroll="True" Grid.Row="2" Background="White" >
+            <StackPanel Background="White" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" >
+                <TextBlock Name="SkillLabel" FontSize="16" Margin="20,5,20,5">Skills:</TextBlock>
+                <WrapPanel Name="SkillsPanel" HorizontalAlignment="Left" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="15,5,20,5" >
+                    <TextBlock Margin="5" TextWrapping="Wrap">There are no skills or there are no "Get your skills" feature selected.<LineBreak/>
+                                Try again later.</TextBlock>
+                </WrapPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</local:UIPanel>

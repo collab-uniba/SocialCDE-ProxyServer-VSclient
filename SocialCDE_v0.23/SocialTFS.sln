@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "It.Uniba.Di.Cdg.SocialTfs.Client", "It.Uniba.Di.Cdg.SocialTfs.Client\It.Uniba.Di.Cdg.SocialTfs.Client.csproj", "{8BAA9506-B930-47C2-A80C-38ED25DA2506}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "It.Uniba.Di.Cdg.SocialTfs.SharedLibrary", "It.Uniba.Di.Cdg.SocialTfs.SharedLibrary\It.Uniba.Di.Cdg.SocialTfs.SharedLibrary.csproj", "{74053378-ACDA-46C4-A41C-C37F9C1B739E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "It.Uniba.Di.Cdg.SocialTfs.OAuthLibrary", "It.Uniba.Di.Cdg.SocialTfs.OAuthLibrary\It.Uniba.Di.Cdg.SocialTfs.OAuthLibrary.csproj", "{00640305-5A8D-46FB-AC7D-7AE68A04B1B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "It.Uniba.Di.Cdg.SocialTfs.ProxyServer", "It.Uniba.Di.Cdg.SocialTfs.ProxyServer\It.Uniba.Di.Cdg.SocialTfs.ProxyServer.csproj", "{AFCCE043-5CEC-44C4-8326-283B2BCA0793}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary", "It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary\It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.csproj", "{2A172ADC-AE88-4848-BA20-96659324986B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "It.Uniba.Di.Cdg.SocialTfs.Server", "It.Uniba.Di.Cdg.SocialTfs.Server\It.Uniba.Di.Cdg.SocialTfs.Server.csproj", "{5AAE437C-94EE-4C69-A9F8-C0D6D8E48712}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "It.Uniba.Di.Cdg.SocialTfs.ClientSetup", "It.Uniba.Di.Cdg.SocialTfs.ClientSetup\It.Uniba.Di.Cdg.SocialTfs.ClientSetup.vdproj", "{F98DFD7D-5AF2-4357-B322-EA17F848EDEE}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs27
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = It.Uniba.Di.Cdg.SocialTfs.Client\\It.Uniba.Di.Cdg.SocialTfs.Client.csproj
+		SccProjectName1 = It.Uniba.Di.Cdg.SocialTfs.Client
+		SccLocalPath1 = It.Uniba.Di.Cdg.SocialTfs.Client
+		SccProjectUniqueName2 = It.Uniba.Di.Cdg.SocialTfs.SharedLibrary\\It.Uniba.Di.Cdg.SocialTfs.SharedLibrary.csproj
+		SccProjectName2 = It.Uniba.Di.Cdg.SocialTfs.SharedLibrary
+		SccLocalPath2 = It.Uniba.Di.Cdg.SocialTfs.SharedLibrary
+		SccProjectUniqueName3 = It.Uniba.Di.Cdg.SocialTfs.OAuthLibrary\\It.Uniba.Di.Cdg.SocialTfs.OAuthLibrary.csproj
+		SccProjectName3 = It.Uniba.Di.Cdg.SocialTfs.OAuthLibrary
+		SccLocalPath3 = It.Uniba.Di.Cdg.SocialTfs.OAuthLibrary
+		SccProjectUniqueName4 = It.Uniba.Di.Cdg.SocialTfs.ProxyServer\\It.Uniba.Di.Cdg.SocialTfs.ProxyServer.csproj
+		SccProjectName4 = It.Uniba.Di.Cdg.SocialTfs.ProxyServer
+		SccLocalPath4 = It.Uniba.Di.Cdg.SocialTfs.ProxyServer
+		SccProjectUniqueName5 = It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary\\It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.csproj
+		SccProjectName5 = It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary
+		SccLocalPath5 = It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary
+		SccProjectUniqueName6 = It.Uniba.Di.Cdg.SocialTfs.Server\\It.Uniba.Di.Cdg.SocialTfs.Server.csproj
+		SccProjectName6 = It.Uniba.Di.Cdg.SocialTfs.Server
+		SccLocalPath6 = It.Uniba.Di.Cdg.SocialTfs.Server
+		SccProjectUniqueName7 = It.Uniba.Di.Cdg.SocialTfs.ClientSetup\\It.Uniba.Di.Cdg.SocialTfs.ClientSetup.vdproj
+		SccProjectName7 = It.Uniba.Di.Cdg.SocialTfs.ClientSetup
+		SccLocalPath7 = It.Uniba.Di.Cdg.SocialTfs.ClientSetup
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BAA9506-B930-47C2-A80C-38ED25DA2506}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BAA9506-B930-47C2-A80C-38ED25DA2506}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BAA9506-B930-47C2-A80C-38ED25DA2506}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BAA9506-B930-47C2-A80C-38ED25DA2506}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74053378-ACDA-46C4-A41C-C37F9C1B739E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74053378-ACDA-46C4-A41C-C37F9C1B739E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74053378-ACDA-46C4-A41C-C37F9C1B739E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74053378-ACDA-46C4-A41C-C37F9C1B739E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00640305-5A8D-46FB-AC7D-7AE68A04B1B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00640305-5A8D-46FB-AC7D-7AE68A04B1B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00640305-5A8D-46FB-AC7D-7AE68A04B1B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00640305-5A8D-46FB-AC7D-7AE68A04B1B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFCCE043-5CEC-44C4-8326-283B2BCA0793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFCCE043-5CEC-44C4-8326-283B2BCA0793}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFCCE043-5CEC-44C4-8326-283B2BCA0793}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFCCE043-5CEC-44C4-8326-283B2BCA0793}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A172ADC-AE88-4848-BA20-96659324986B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A172ADC-AE88-4848-BA20-96659324986B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A172ADC-AE88-4848-BA20-96659324986B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A172ADC-AE88-4848-BA20-96659324986B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AAE437C-94EE-4C69-A9F8-C0D6D8E48712}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AAE437C-94EE-4C69-A9F8-C0D6D8E48712}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AAE437C-94EE-4C69-A9F8-C0D6D8E48712}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AAE437C-94EE-4C69-A9F8-C0D6D8E48712}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F98DFD7D-5AF2-4357-B322-EA17F848EDEE}.Debug|Any CPU.ActiveCfg = Debug
+		{F98DFD7D-5AF2-4357-B322-EA17F848EDEE}.Debug|Any CPU.Build.0 = Debug
+		{F98DFD7D-5AF2-4357-B322-EA17F848EDEE}.Release|Any CPU.ActiveCfg = Release
+		{F98DFD7D-5AF2-4357-B322-EA17F848EDEE}.Release|Any CPU.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

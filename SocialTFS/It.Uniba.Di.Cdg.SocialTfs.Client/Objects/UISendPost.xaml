@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UISendPost"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Background="#FFC2CCDB" Height="68">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Border BorderThickness="2" Grid.Row="0" Grid.Column="0"  Width="Auto">
+            <Border.Background>
+                <ImageBrush ImageSource="/It.Uniba.Di.Cdg.SocialTfs.Client;component/Images/Baloon.png" />
+            </Border.Background>
+              <TextBox Name="PostTextBox" Height="56" Margin="1, 1, 1, 12" AcceptsReturn="True" TextWrapping="Wrap" HorizontalAlignment="Stretch"  />
+        </Border>
+      
+        <Button Content="Send" Grid.Row="0"  Grid.Column="1" Click="Button_Click" Width="100px" Margin="10,7,10,15"/>
+
+    </Grid>
+</UserControl>

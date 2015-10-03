@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIBusy"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d">
+    <Canvas Width="100" Height="20">
+        <Ellipse Name="Fifth" Width="5" Height="5" Fill="#FF293955" Canvas.Top="10" Canvas.Left="-240" Opacity="0">
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Ellipse.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard BeginTime="0:0:0.8" RepeatBehavior="Forever">
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:1" Storyboard.TargetName="Fifth" Storyboard.TargetProperty="(Canvas.Left)" From="-240" To="30" AccelerationRatio="0.2"/>
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:1" Storyboard.TargetName="Fifth" Storyboard.TargetProperty="Opacity" From="0" To="1" AccelerationRatio="0.2"/>
+                            <DoubleAnimation BeginTime="0:0:2" Duration="0:0:1" Storyboard.TargetName="Fifth" Storyboard.TargetProperty="(Canvas.Left)" From="30" To="300" AccelerationRatio="0.8"/>
+                            <DoubleAnimation BeginTime="0:0:2" Duration="0:0:1" Storyboard.TargetName="Fifth" Storyboard.TargetProperty="Opacity" From="1" To="0" AccelerationRatio="0.8"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+        <Ellipse Name="Fourth" Width="5" Height="5" Fill="#FF293955" Canvas.Top="10" Canvas.Left="-230" Opacity="0">
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Ellipse.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard BeginTime="0:0:0.6" RepeatBehavior="Forever">
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:1" Storyboard.TargetName="Fourth" Storyboard.TargetProperty="(Canvas.Left)" From="-230" To="40" AccelerationRatio="0.2"/>
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:1" Storyboard.TargetName="Fourth" Storyboard.TargetProperty="Opacity" From="0" To="1" AccelerationRatio="0.2"/>
+                            <DoubleAnimation BeginTime="0:0:2" Duration="0:0:1" Storyboard.TargetName="Fourth" Storyboard.TargetProperty="(Canvas.Left)" From="40" To="310" AccelerationRatio="0.8"/>
+                            <DoubleAnimation BeginTime="0:0:2" Duration="0:0:1" Storyboard.TargetName="Fourth" Storyboard.TargetProperty="Opacity" From="1" To="0" AccelerationRatio="0.8"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+        <Ellipse Name="Third" Width="5" Height="5" Fill="#FF293955" Canvas.Top="10" Canvas.Left="-220" Opacity="0">
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Ellipse.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard BeginTime="0:0:0.4" RepeatBehavior="Forever">
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:1" Storyboard.TargetName="Third" Storyboard.TargetProperty="(Canvas.Left)" From="-220" To="50" AccelerationRatio="0.2"/>
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:1" Storyboard.TargetName="Third" Storyboard.TargetProperty="Opacity" From="0" To="1" AccelerationRatio="0.2"/>
+                            <DoubleAnimation BeginTime="0:0:2" Duration="0:0:1" Storyboard.TargetName="Third" Storyboard.TargetProperty="(Canvas.Left)" From="50" To="320" AccelerationRatio="0.8"/>
+                            <DoubleAnimation BeginTime="0:0:2" Duration="0:0:1" Storyboard.TargetName="Third" Storyboard.TargetProperty="Opacity" From="1" To="0" AccelerationRatio="0.8"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+        <Ellipse Name="Second" Width="5" Height="5" Fill="#FF293955" Canvas.Top="10" Canvas.Left="-210" Opacity="0">
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Ellipse.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard BeginTime="0:0:0.2" RepeatBehavior="Forever">
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:1" Storyboard.TargetName="Second" Storyboard.TargetProperty="(Canvas.Left)" From="-210" To="60" AccelerationRatio="0.2"/>
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:1" Storyboard.TargetName="Second" Storyboard.TargetProperty="Opacity" From="0" To="1" AccelerationRatio="0.2"/>
+                            <DoubleAnimation BeginTime="0:0:2" Duration="0:0:1" Storyboard.TargetName="Second" Storyboard.TargetProperty="(Canvas.Left)" From="60" To="330" AccelerationRatio="0.8"/>
+                            <DoubleAnimation BeginTime="0:0:2" Duration="0:0:1" Storyboard.TargetName="Second" Storyboard.TargetProperty="Opacity" From="1" To="0" AccelerationRatio="0.8"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+        <Ellipse Name="First" Width="5" Height="5" Fill="#FF293955" Canvas.Top="10" Canvas.Left="-200" Opacity="0">
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Ellipse.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard BeginTime="0:0:0" RepeatBehavior="Forever">
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:1" Storyboard.TargetName="First" Storyboard.TargetProperty="(Canvas.Left)" From="-200" To="70" AccelerationRatio="0.2"/>
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:1" Storyboard.TargetName="First" Storyboard.TargetProperty="Opacity" From="0" To="1" AccelerationRatio="0.2"/>
+                            <DoubleAnimation BeginTime="0:0:2" Duration="0:0:1" Storyboard.TargetName="First" Storyboard.TargetProperty="(Canvas.Left)" From="70" To="340" AccelerationRatio="0.8"/>
+                            <DoubleAnimation BeginTime="0:0:2" Duration="0:0:1" Storyboard.TargetName="First" Storyboard.TargetProperty="Opacity" From="1" To="0" AccelerationRatio="0.8"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+    </Canvas>
+</UserControl>

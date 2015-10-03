@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIUser.UIStackOverflowReputation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:my="clr-namespace:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIUser"
+             >
+    
+    <StackPanel Margin="20,0">
+        <Expander Header="StackOverflow score" Foreground="Gray" 
+                  VerticalAlignment="Top" FontSize="14" IsExpanded="False" 
+                  Visibility="Visible">
+        <StackPanel Margin="15,0" >
+                <StackPanel.Background>
+                    <ImageBrush />
+                </StackPanel.Background>
+                <Image Width="200" Height="35" Source="/It.Uniba.Di.Cdg.SocialTfs.Client;component/Images/UIUser/stackoverflow_scritta.png" Margin="0" HorizontalAlignment="Center"></Image>
+                <Separator></Separator>
+                <StackPanel Margin="10,0">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Reputation:" Width="75" FontWeight="SemiBold" FontSize="12"></Label>
+                        <Label Name="lblreputation" Content="300" FontSize="12"></Label>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Answers:" Width="75" FontWeight="SemiBold" FontSize="12"></Label>
+                        <Label Name="lblanswers" Content="10" FontSize="12"></Label>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Questions:" Width="75" FontWeight="SemiBold" FontSize="12"></Label>
+                        <Label Name="lblquestions" Content="15" FontSize="12"></Label>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"></StackPanel>
+                    <StackPanel Margin="10,0">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Bronze" Width="70" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontWeight="SemiBold" FontSize="12"></Label>
+                            <Label Content="Silver" Width="70" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontWeight="SemiBold" FontSize="12"></Label>
+                            <Label Content="Gold" Width="70" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontWeight="SemiBold" FontSize="12"></Label>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="25" Height="25" Source="/It.Uniba.Di.Cdg.SocialTfs.Client;component/Images/UIUser/medal_bronze.png" Margin="25,0,45,0"></Image>
+                            <Image Width="25" Height="25" Source="/It.Uniba.Di.Cdg.SocialTfs.Client;component/Images/UIUser/medal_silver.png" Margin="0,0,45,0"></Image>
+                            <Image Width="25" Height="25" Source="/It.Uniba.Di.Cdg.SocialTfs.Client;component/Images/UIUser/medal_gold.png"></Image>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="11" Name="lblbronze" Width="40" HorizontalContentAlignment="Center" Margin="15,0,35,0" FontSize="12"></Label>
+                            <Label Content="2" Name="lblsilver" Width="40" HorizontalContentAlignment="Center" FontSize="12"></Label>
+                            <Label Content="0" Name="lblgold" Width="40" HorizontalContentAlignment="Center" Margin="25,0,0,0" FontSize="12"></Label>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"></StackPanel>
+                    <WrapPanel Margin="10,0,0,0" Name="wrapTag"></WrapPanel>
+                </StackPanel> 
+        </StackPanel>
+        </Expander>
+    </StackPanel>
+    
+</UserControl>
