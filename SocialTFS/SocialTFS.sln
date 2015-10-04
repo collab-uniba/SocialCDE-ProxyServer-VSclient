@@ -23,33 +23,6 @@ Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "It.Uniba.Di.Cdg.SocialTfs.C
 	EndProjectSection
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 8
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs27
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = It.Uniba.Di.Cdg.SocialTfs.Server\\It.Uniba.Di.Cdg.SocialTfs.Server.csproj
-		SccProjectName1 = It.Uniba.Di.Cdg.SocialTfs.Server
-		SccLocalPath1 = It.Uniba.Di.Cdg.SocialTfs.Server
-		SccProjectUniqueName2 = It.Uniba.Di.Cdg.SocialTfs.OAuthLibrary\\It.Uniba.Di.Cdg.SocialTfs.OAuthLibrary.csproj
-		SccProjectName2 = It.Uniba.Di.Cdg.SocialTfs.OAuthLibrary
-		SccLocalPath2 = It.Uniba.Di.Cdg.SocialTfs.OAuthLibrary
-		SccProjectUniqueName3 = It.Uniba.Di.Cdg.SocialTfs.Client\\It.Uniba.Di.Cdg.SocialTfs.Client.csproj
-		SccProjectName3 = It.Uniba.Di.Cdg.SocialTfs.Client
-		SccLocalPath3 = It.Uniba.Di.Cdg.SocialTfs.Client
-		SccProjectUniqueName4 = It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary\\It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.csproj
-		SccProjectName4 = It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary
-		SccLocalPath4 = It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary
-		SccProjectUniqueName5 = It.Uniba.Di.Cdg.SocialTfs.ProxyServer\\It.Uniba.Di.Cdg.SocialTfs.ProxyServer.csproj
-		SccProjectName5 = It.Uniba.Di.Cdg.SocialTfs.ProxyServer
-		SccLocalPath5 = It.Uniba.Di.Cdg.SocialTfs.ProxyServer
-		SccProjectUniqueName6 = It.Uniba.Di.Cdg.SocialTfs.SharedLibrary\\It.Uniba.Di.Cdg.SocialTfs.SharedLibrary.csproj
-		SccProjectName6 = It.Uniba.Di.Cdg.SocialTfs.SharedLibrary
-		SccLocalPath6 = It.Uniba.Di.Cdg.SocialTfs.SharedLibrary
-		SccProjectUniqueName7 = It.Uniba.Di.Cdg.SocialTfs.ClientSetup\\It.Uniba.Di.Cdg.SocialTfs.ClientSetup.isproj
-		SccProjectName7 = It.Uniba.Di.Cdg.SocialTfs.ClientSetup
-		SccLocalPath7 = It.Uniba.Di.Cdg.SocialTfs.ClientSetup
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|Any CPU = CD_ROM|Any CPU
 		CD_ROM|Mixed Platforms = CD_ROM|Mixed Platforms
