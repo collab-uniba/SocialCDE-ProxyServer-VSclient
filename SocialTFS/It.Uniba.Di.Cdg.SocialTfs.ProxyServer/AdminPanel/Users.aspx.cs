@@ -137,6 +137,12 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
             {
                 db.InteractiveFriends.DeleteAllOnSubmit(db.InteractiveFriends.Where(q => q.user == id));
                 db.SubmitChanges();
+                db.DynamicFriends.DeleteAllOnSubmit(db.DynamicFriends.Where(q => q.user == id));
+                db.SubmitChanges();
+                db.StaticFriends.DeleteAllOnSubmit(db.StaticFriends.Where(q => q.user == id));
+                db.SubmitChanges();
+                db.Suggestions.DeleteAllOnSubmit(db.Suggestions.Where(q => q.user == id));
+                db.SubmitChanges();
                 db.Users.DeleteAllOnSubmit(db.Users.Where(u => u.id == id));
                 db.SubmitChanges();
                 isDeleted = true;
