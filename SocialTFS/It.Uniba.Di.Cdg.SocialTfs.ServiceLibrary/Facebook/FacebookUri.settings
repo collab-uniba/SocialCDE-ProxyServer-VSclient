@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.Facebook" GeneratedClassName="FacebookUri">
+  <Profiles />
+  <Settings>
+    <Setting Name="VERIFY_CREDENTIALS" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/me</Value>
+    </Setting>
+    <Setting Name="USER_TIMELINE" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/me/posts</Value>
+    </Setting>
+    <Setting Name="AVATAR" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/me/picture</Value>
+    </Setting>
+    <Setting Name="FRIEND" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/me/friends</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

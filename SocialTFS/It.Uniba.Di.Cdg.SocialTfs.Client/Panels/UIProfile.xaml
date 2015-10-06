@@ -1,0 +1,60 @@
+﻿<local:UIPanel xmlns:my="clr-namespace:It.Uniba.Di.Cdg.SocialTfs.Client.Objects"
+               x:Class="It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIProfile"
+               xmlns:local="clr-namespace:It.Uniba.Di.Cdg.SocialTfs.Client.Panels"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" BorderBrush="#FF9CAAC1">
+    <Grid Name="Container">
+        <Grid Name="ProfileGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="74" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Border Background="#FF9CAAC1">
+                <Grid Width="285" Margin="5" HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="74"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Orientation="Horizontal">
+                        <my:UICustomButton x:Name="MoreButton" Height="22" Width="22" Click="More_Click" ToolTip="View your skills" />
+                        <my:UICustomButton x:Name="SettingsButton" Height="22" Width="22" Click="Setting_Click" ToolTip="Change your password" />
+                        <my:UICustomButton x:Name="ExitButton" Height="22" Width="22" Click="Exit_Click" ToolTip="Logout" />
+                    </StackPanel>
+                    <my:UICustomButton x:Name="Avatar" Click="Avatar_Click" ToolTip="Change your avatar" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="4"/>
+                    <TextBlock Name="UserName" Margin="2" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" FontSize="16" />
+                    <TextBlock Name="Posts" Margin="1" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" FontSize="14"/>
+                    <Separator Width="1" HorizontalAlignment="Right" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Background="Black" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                    <TextBlock Name="Followings" Margin="1" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="2" FontSize="14" />
+                    <Separator Width="1" HorizontalAlignment="Right" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Background="Black" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                    <TextBlock Name="Followers" Margin="1" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="2" FontSize="14" />
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="3" >posts</TextBlock>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="3" >following</TextBlock>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="3" >followers</TextBlock>
+                </Grid>
+            </Border>
+            <ScrollViewer Name="ServicesScroll"  CanContentScroll="True" Grid.Row="2" Background="White">
+                <Grid ScrollViewer.VerticalScrollBarVisibility="Auto" >
+                    <StackPanel Background="White">
+                        <TextBlock Name="ServicesLabel" FontSize="16" Margin="20,5">Services:</TextBlock>
+                        <WrapPanel Name="Services" MinWidth="285" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="15,5,0,5">
+                            <TextBlock Margin="5" TextWrapping="Wrap">There are no services available yet.<LineBreak/>
+                                Please try again soon or contact your admin.</TextBlock>
+                        </WrapPanel>
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+
+        </Grid>
+    </Grid>
+</local:UIPanel>

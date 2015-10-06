@@ -1,0 +1,873 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>It.Uniba.Di.Cdg.SocialTfs.Client</name>
+    </assembly>
+    <members>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.PreviewType">
+            <summary>
+            Type of previewThread.
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIPreview">
+            <summary>
+            Interaction logic for UIPreview.xaml.
+            </summary>
+            <summary>
+            UIPreview
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIPreview.#ctor(System.String,It.Uniba.Di.Cdg.SocialTfs.Client.Objects.PreviewType)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="pageUrl">Url of a web page.</param>
+            <param name="type">Type of the previewThread.</param>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIPreview.ImagePreview(System.String)">
+            This code doesn't work becouse API need login
+            
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIPreview.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.SocialTFSProxyClient">
+            <summary>
+            Throws this class it is possible to access to all methods offered by the SocialTFS Proxy Server.
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UIAvatars">
+            <summary>
+            Interaction logic for UIAvatars.xaml.
+            </summary>
+            <summary>
+            UIAvatars
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UIAvatars.#ctor">
+            <summary>
+            Contructor.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UIAvatars.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIBusy">
+            <summary>
+            Interaction logic for UIBusy.xaml.
+            </summary>
+            <summary>
+            UIBusy
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIBusy.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIBusy.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UIHideUser">
+            <summary>
+            Interaction logic for UIHideUser.xaml.
+            </summary>
+            <summary>
+            UIHideUser
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UIHideUser.#ctor(It.Uniba.Di.Cdg.SocialTfs.SharedLibrary.WUser)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="user">User to hide.</param>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UIHideUser.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UISettings">
+            <summary>
+            Interaction logic for UISettings.xaml.
+            </summary>
+            <summary>
+            UISettings
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UISettings.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UISettings.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIColleague">
+            <summary>
+            Interaction logic for UIColleague.xaml.
+            </summary>
+            <summary>
+            UIColleague
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIPanel">
+            <summary>
+            Manage the lifecycle of the panel
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIPanel.Open">
+            <summary>
+            Open the panel
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIPanel.Close">
+            <summary>
+            Close the panel
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIPanel.WakeUp">
+            <summary>
+            Update the panel
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIColleague.#ctor(System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="userId">Identifier of the user.</param>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIColleague.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UIFeatures">
+            <summary>
+            Interaction logic for UIFeatures.xaml.
+            </summary>
+            <summary>
+            UIFeatures
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UIFeatures.#ctor(It.Uniba.Di.Cdg.SocialTfs.SharedLibrary.WService,System.Boolean)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="service">The service which provides features.</param>
+            <param name="firstAccess">True if the user access for the first time, false otherwise.</param>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UIFeatures.ChosenFeatures">
+            <summary>
+            Get the list of the features chosen by the user as a list of strings.
+            </summary>
+            <returns>A list of features.</returns>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UIFeatures.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UILittleBusy">
+            <summary>
+            Interaction logic for UILittleBusy.xaml.
+            </summary>
+            <summary>
+            UILittleBusy
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UILittleBusy.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UILostConnection">
+            <summary>
+            Interaction logic for UILostConnection.xaml.
+            </summary>
+            <summary>
+            UILostConnection
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UILostConnection.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIPerson">
+            <summary>
+            Interaction logic for UIPerson.xaml.
+            </summary>
+            <summary>
+            UIPerson
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIPerson.#ctor(It.Uniba.Di.Cdg.SocialTfs.SharedLibrary.WUser)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIPerson.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="E:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIPerson.Click">
+            <summary>
+            Event activated when the control is clicked.
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIPeople">
+            <summary>
+            Interaction logic for UIPeople.xaml.
+            </summary>
+            <summary>
+            UIPeople
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIPeople.AsyncUpdate">
+            <summary>
+            Update the lists of people in asyncronous way.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIPeople.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UILogin">
+            <summary>
+            Interaction logic for UILogin.xaml.
+            </summary>
+            <summary>
+            UILogin
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UILogin.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UILogin.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UIPinPanel">
+            <summary>
+            Interaction logic for UIPinPanel.xaml.
+            </summary>
+            <summary>
+            UIPinPanel
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UIPinPanel.#ctor(System.String,System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="logo">Url to the logo of the service.</param>
+            <param name="oauthVersion">Oauth version of the service.</param>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UIPinPanel.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UIRegistration">
+            <summary>
+            Interaction logic for UIRegistration.xaml.
+            </summary>
+            <summary>
+            UIRegistration
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UIRegistration.CheckProxyHost">
+            <summary>
+            Check if the Proxy Host entered is correct.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UIRegistration.CheckUsername">
+            <summary>
+            Check if the Username is available.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UIRegistration.CheckPassword">
+            <summary>
+            Check if the two password typed are equal and display an error if they are different.
+            </summary>
+            <returns>True if the the passwords matches, false otherwise.</returns>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UIRegistration.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UISendPost">
+            <summary>
+            Interaction logic for UISendPost.xaml.
+            </summary>
+            <summary>
+            UISendPost
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UISendPost.Button_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Sends the post when the send button is clicked..
+            </summary>
+            <param name="sender">Button related.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UISendPost.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="E:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UISendPost.OnMessageSended">
+            <summary>
+            Event activated when the user posts a message.
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIService">
+            <summary>
+            Interaction logic for UIService.xaml.
+            </summary>
+            <summary>
+            UIService
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIService.#ctor(It.Uniba.Di.Cdg.SocialTfs.SharedLibrary.WService)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="service">Social network service interface reference.</param>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIService.Subscribe">
+            <summary>
+            Start the Authorization procedure.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIService.Authorize(System.String)">
+            <summary>
+            Continue the authentication process requiring authorization.
+            </summary>
+            <param name="verifier">Verifier pin</param>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIService.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="E:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIService.Click">
+            <summary>
+            Event activated when the control is clicked.
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Connect">
+            <summary>
+            The object for implementing an Add-in.
+            </summary>
+            <seealso class='IDTExtensibility2' />
+        </member>
+        <member name="F:It.Uniba.Di.Cdg.SocialTfs.Client.Connect._applicationObject">
+            <summary>
+            Reference to the application object.
+            </summary>
+        </member>
+        <member name="F:It.Uniba.Di.Cdg.SocialTfs.Client.Connect._addInInstance">
+            <summary>
+            Reference to an add-in instance.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Connect.#ctor">
+            <summary>
+            Implements the constructor for the Add-in object.
+            Place your initialization code within this method.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Connect.OnConnection(System.Object,Extensibility.ext_ConnectMode,System.Object,System.Array@)">
+            <summary>
+            Implements the OnConnection method of the IDTExtensibility2 interface.
+            Receives notification that the Add-in is being loaded.
+            </summary>
+            <param term='application'>Root object of the host application</param>
+            <param term='connectMode'>Describes how the Add-in is being loaded</param>
+            <param term='addInInst'>Object representing this Add-in</param>
+            <seealso class='IDTExtensibility2' />
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Connect.OnDisconnection(Extensibility.ext_DisconnectMode,System.Array@)">
+            <summary>
+            Implements the OnDisconnection method of the IDTExtensibility2 interface.
+            Receives notification that the Add-in is being unloaded.
+            </summary>
+            <param term='disconnectMode'>Describes how the Add-in is being unloaded</param>
+            <param term='custom'>Array of parameters that are host application specific</param>
+            <seealso class='IDTExtensibility2' />
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Connect.OnAddInsUpdate(System.Array@)">
+            <summary>
+            Implements the OnAddInsUpdate method of the IDTExtensibility2 interface.
+            Receives notification when the collection of Add-ins has changed.
+            </summary>
+            <param term='custom'>Array of parameters that are host application specific</param>
+            <seealso class='IDTExtensibility2' />		
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Connect.OnStartupComplete(System.Array@)">
+            <summary>
+            Implements the OnStartupComplete method of the IDTExtensibility2 interface.
+            Receives notification that the host application has completed loading.
+            </summary>
+            <param term='custom'>Array of parameters that are host application specific</param>
+            <seealso class='IDTExtensibility2' />
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Connect.OnBeginShutdown(System.Array@)">
+            <summary>
+            Implements the OnBeginShutdown method of the IDTExtensibility2 interface.
+            Receives notification that the host application is being unloaded.
+            </summary>
+            <param term='custom'>Array of parameters that are host application specific.</param>
+            <seealso class='IDTExtensibility2' />
+        </member>
+        <member name="F:It.Uniba.Di.Cdg.SocialTfs.Client.ClientUserControl.elementHost">
+            <summary>
+            Reference to the element host.
+            </summary>
+        </member>
+        <member name="F:It.Uniba.Di.Cdg.SocialTfs.Client.ClientUserControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.ClientUserControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">True if managed resources should be disposed, false otherwise</param>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.ClientUserControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIPost">
+            <summary>
+            Interaction logic for UIPost.xaml.
+            </summary>
+            <summary>
+            UIPost
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIPost.#ctor(It.Uniba.Di.Cdg.SocialTfs.SharedLibrary.WPost)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="post">Post to be showed by this interface.</param>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIPost.#ctor(It.Uniba.Di.Cdg.SocialTfs.SharedLibrary.WPost,System.Boolean)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="post">Post to be showed by this interface.</param>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UIPost.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UIClient">
+            <summary>
+            Interaction logic for UIClient.xaml.
+            </summary>
+            <summary>
+            UIClient
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UIClient.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UIClient.SaveCheckedButton(It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UICustomButton)">
+            <summary>
+            Save the button checked as the last checked button.
+            </summary>
+            <param name="button">The button.</param>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UIClient.AddPanel(It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIPanel)">
+            <summary>
+            Add a panel dynamically over the panel currently shown.
+            </summary>
+            <remarks>
+            This method allows to create a stack of panels in way to navigate on the panels in a similar manner on the web page browsing.
+            </remarks>
+            <param name="panel">The panel to add.</param>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UIClient.BackPanelButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Cames back to the previous panel. 
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UIClient.CloseDynamicPanels">
+            <summary>
+            Close all panel in the stack of panels.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UIClient.Button_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Manage the click of each button in the toolbar.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UIClient.ReloadInteractiveTimeline">
+            <summary>
+            Reload the Interactive Timeline throws the wake up of the panel.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UIClient.ShowLostConnection">
+            <summary>
+            Show a panel that manage the losing of the connection.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UIClient.Reconnect_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Try to reconnect after a disconnection.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UIClient.WorkOffline_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Allows to work without a connection.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UIClient.Exit">
+            <summary>
+            Exit from the application and logout.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UIClient.LogOut">
+            <summary>
+            Logout and show the login panel.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UIClient.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.UIController">
+            <summary>
+            Manage all the add-in interfaces.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.UIController.Initialize(EnvDTE80.DTE2,EnvDTE.AddIn)">
+            <summary>
+            Initialize the add-in.
+            </summary>
+            <param name="application">Application reference.</param>
+            <param name="addInInstance">Add-in instance reference.</param>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.UIController.ThreadExceptionHandler(System.Object,System.UnhandledExceptionEventArgs)">
+            <summary>
+            Catch all unhandled exception.
+            This is necessary to avoid the crash on the IDE when an unhandled exception is raised.
+            </summary>
+            <param name="sender">Sender</param>
+            <param name="args">Args</param>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.UIController.CheckInizialization">
+            <summary>
+            Check if the add-in is initialized.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.UIController.ShowToolWindow">
+            <summary>
+            Start the startup procedures to show the add-in.
+            </summary>
+            <remarks>
+            Initialize the user control containing the interfeces.
+            </remarks>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.UIController.ShowLoginPanel">
+            <summary>
+            Show the panel for the login.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.UIController.IsRegistred">
+            <summary>
+            Check if there is an account stored in the setting file.
+            </summary>
+            <returns>True if there is an account stored, False otherwise.</returns>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.UIController.ShowRegistrationPanel">
+            <summary>
+            Show the panel for the registration.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.UIController.ShowMainPanel">
+            <summary>
+            Show the panel for the Profile.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.UIController.ShowLostConnection">
+            <summary>
+            Show lost connection warning.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.UIController.AddPanel(It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIPanel)">
+            <summary>
+            Add stack panel on top of client.
+            </summary>
+            <param name="userControlPanel">Panel to add</param>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.UIController.Browse(System.String)">
+            <summary>
+            Requires to open a web page in the default browser. 
+            </summary>
+            <param name="link">Link to the web page.</param>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.UIController.CurrentURL">
+            <summary>
+            Return the current URL in the default browser.
+            </summary>
+            <returns>Current URL.</returns>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.UIController.GetCurrentCollectionURL">
+            <summary>
+            Return the current collection in Team Explorer.
+            </summary>
+            <returns>A list of ids.</returns>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.UIController.GetActiveObject">
+            <summary>
+            Return the file or work items the user is currently interacting with.
+            </summary>
+            <returns>The object identifier and type.</returns>
+        </member>
+        <member name="P:It.Uniba.Di.Cdg.SocialTfs.Client.UIController.UILogin">
+            <summary>
+            Get the Login panel, if the panel doesn't exist, it will be created.
+            </summary>
+        </member>
+        <member name="P:It.Uniba.Di.Cdg.SocialTfs.Client.UIController.MainGrid">
+            <summary>
+            Get the main panel as a grid, if the panel doesn't exist, it will be created.
+            </summary>
+        </member>
+        <member name="P:It.Uniba.Di.Cdg.SocialTfs.Client.UIController.UIRegistration">
+            <summary>
+            Get the Registration panel, if the panel doesn't exist, it will be created.
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.UIController.DocumentType">
+            <summary>
+            Type of Visual Studio document.
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIProfile">
+            <summary>
+            Interaction logic for UIProfile.xaml.
+            </summary>
+            <summary>
+            UIProfile
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIProfile.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIProfile.AsyncUpdate">
+            <summary>
+            Update the lists of people in asyncronous way.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIProfile.Exit_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Exit from the application and logout.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIProfile.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UISkills">
+            <summary>
+            Interaction logic for UISocialNetwork.xaml
+            </summary>
+            <summary>
+            UISkills
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UISkills.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIMicroblog">
+            <summary>
+            Interaction logic for UIMicroblog.xaml.
+            </summary>
+            <summary>
+            UIMicroblog
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIMicroblog.#ctor(It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UITimeline.TimelineType)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIMicroblog.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UILoading">
+            <summary>
+            Interaction logic for UILoading.xaml.
+            </summary>
+            <summary>
+            UILoading
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UILoading.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="text">Text to show.</param>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UILoading.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UITFSLogin">
+            <summary>
+            Interaction logic for UITFSLogin.xaml.
+            </summary>
+            <summary>
+            UITFSLogin
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UITFSLogin.#ctor(System.String,System.Boolean)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="logo">Url to the logo of the service.</param>
+            <param name="requireTFSDomain">True if require domain, false otherwise.</param>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Popups.UITFSLogin.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UITimeline">
+            <summary>
+            Interaction logic for UITimeline.xaml.
+            </summary>
+            <summary>
+            UITimeline
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UITimeline.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UITimeline.TimelineType">
+            <summary>
+            Type of timeline.
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UICustomButton">
+            <summary>
+            Interaction logic for UICustomButton.xaml.
+            </summary>
+            <summary>
+            UICustomButton
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UICustomButton.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UICustomButton.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UICustomButton.Type">
+            <summary>
+            Choosen type of button.
+            </summary>
+        </member>
+        <member name="P:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UICustomButton.IsDefault">
+            <summary>
+            True if the button action can be activated by Enter button, false otherwise.
+            </summary>
+        </member>
+        <member name="P:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UICustomButton.Text">
+            <summary>
+            The text shown inside the button.
+            </summary>
+        </member>
+        <member name="P:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UICustomButton.StaticBorder">
+            <summary>
+            True if the button have a border, false otherwise.
+            </summary>
+        </member>
+        <member name="P:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UICustomButton.IsChecked">
+            <summary>
+            True if the button is checked, false otherwise. It's valid just with ToggleButton type.
+            </summary>
+        </member>
+        <member name="E:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UICustomButton.Click">
+            <summary>
+            Click event of the button.
+            </summary>
+        </member>
+        <member name="T:It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UICustomButton.ButtonType">
+            <summary>
+            Type of button.
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

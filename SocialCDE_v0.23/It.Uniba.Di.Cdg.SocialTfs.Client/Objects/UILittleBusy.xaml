@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UILittleBusy"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="16" d:DesignWidth="16">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Ellipse Name="First" Grid.Column="1" Fill="Black" Width="4" Height="4" Opacity="0">
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Ellipse.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard BeginTime="0:0:0" Duration="0:0:1" RepeatBehavior="Forever">
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:0" Storyboard.TargetName="First" Storyboard.TargetProperty="Opacity" From="0" To="1"/>
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:0.5" Storyboard.TargetName="First" Storyboard.TargetProperty="Opacity" From="1" To="0"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+        <Ellipse Name="Second" Grid.Column="2" Fill="Black" Width="4" Height="4" Opacity="0">
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Ellipse.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard BeginTime="0:0:0.125" Duration="0:0:1" RepeatBehavior="Forever">
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:0" Storyboard.TargetName="Second" Storyboard.TargetProperty="Opacity" From="0" To="1"/>
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:0.5" Storyboard.TargetName="Second" Storyboard.TargetProperty="Opacity" From="1" To="0"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+        <Ellipse Name="Third" Grid.Row="1" Grid.Column="3" Fill="Black" Width="4" Height="4" Opacity="0">
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Ellipse.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard BeginTime="0:0:0.25" Duration="0:0:1" RepeatBehavior="Forever">
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:0" Storyboard.TargetName="Third" Storyboard.TargetProperty="Opacity" From="0" To="1"/>
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:0.5" Storyboard.TargetName="Third" Storyboard.TargetProperty="Opacity" From="1" To="0"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+        <Ellipse Name="Fourth" Grid.Column="3" Grid.Row="2" Fill="Black" Width="4" Height="4" Opacity="0">
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Ellipse.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard BeginTime="0:0:0.375" Duration="0:0:1" RepeatBehavior="Forever">
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:0" Storyboard.TargetName="Fourth" Storyboard.TargetProperty="Opacity" From="0" To="1"/>
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:0.5" Storyboard.TargetName="Fourth" Storyboard.TargetProperty="Opacity" From="1" To="0"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+        <Ellipse Name="Fifth" Grid.Column="2" Grid.Row="3" Fill="Black" Width="4" Height="4" Opacity="0">
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Ellipse.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard BeginTime="0:0:0.5" Duration="0:0:1" RepeatBehavior="Forever">
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:0" Storyboard.TargetName="Fifth" Storyboard.TargetProperty="Opacity" From="0" To="1"/>
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:0.5" Storyboard.TargetName="Fifth" Storyboard.TargetProperty="Opacity" From="1" To="0"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+        <Ellipse Name="Sixth" Grid.Column="1" Grid.Row="3" Fill="Black" Width="4" Height="4" Opacity="0">
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Ellipse.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard BeginTime="0:0:0.625" Duration="0:0:1" RepeatBehavior="Forever">
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:0" Storyboard.TargetName="Sixth" Storyboard.TargetProperty="Opacity" From="0" To="1"/>
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:0.5" Storyboard.TargetName="Sixth" Storyboard.TargetProperty="Opacity" From="1" To="0"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+        <Ellipse Name="Seventh" Grid.Row="2" Fill="Black" Width="4" Height="4" Opacity="0">
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Ellipse.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard BeginTime="0:0:0.75" Duration="0:0:1" RepeatBehavior="Forever">
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:0" Storyboard.TargetName="Seventh" Storyboard.TargetProperty="Opacity" From="0" To="1"/>
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:0.5" Storyboard.TargetName="Seventh" Storyboard.TargetProperty="Opacity" From="1" To="0"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+        <Ellipse Name="Eighth" Grid.Row="1" Fill="Black" Width="4" Height="4" Opacity="0">
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Ellipse.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard BeginTime="0:0:0.875" Duration="0:0:1" RepeatBehavior="Forever">
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:0" Storyboard.TargetName="Eighth" Storyboard.TargetProperty="Opacity" From="0" To="1"/>
+                            <DoubleAnimation BeginTime="0:0:0" Duration="0:0:0.5" Storyboard.TargetName="Eighth" Storyboard.TargetProperty="Opacity" From="1" To="0"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+    </Grid>
+</UserControl>

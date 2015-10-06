@@ -1,0 +1,30 @@
+﻿<local:UIPanel x:Class="It.Uniba.Di.Cdg.SocialTfs.Client.Panels.UIPeople"
+               xmlns:local="clr-namespace:It.Uniba.Di.Cdg.SocialTfs.Client.Panels"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d">
+
+    <ScrollViewer Name="ServicesScroll" CanContentScroll="True" Grid.Row="2" Background="White" >
+        <StackPanel Background="White" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <TextBlock Name="SuggestionLabel" FontSize="16" Margin="20,5">Suggestions:</TextBlock>
+            <WrapPanel Name="Suggestion" MinWidth="285" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="15,5,0,5">
+                <TextBlock Margin="5" TextWrapping="Wrap">We have no suggestions for you.<LineBreak/>
+                        Please try again soon.</TextBlock>
+            </WrapPanel>
+            <TextBlock Name="FollowingsLabel" FontSize="16" Margin="20,5">Followings:</TextBlock>
+            <WrapPanel Name="Followings" MinWidth="285" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="15,5,0,5">
+                <TextBlock Margin="5" TextWrapping="Wrap">You are following no one.</TextBlock>
+            </WrapPanel>
+            <TextBlock Name="FollowersLabel" FontSize="16" Margin="20,5">Followers:</TextBlock>
+            <WrapPanel Name="Followers" MinWidth="285" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="15,5,0,5">
+                <TextBlock Margin="5" TextWrapping="Wrap">No one is following you.</TextBlock>
+            </WrapPanel>
+            <TextBlock Name="HiddenLabel" FontSize="16" Margin="20,5">Hiddens:</TextBlock>
+            <WrapPanel Name="Hiddens" MinWidth="285" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="15,5,0,5">
+                <TextBlock Margin="5" TextWrapping="Wrap">You have hidden no one.</TextBlock>
+            </WrapPanel>
+        </StackPanel>
+    </ScrollViewer>
+</local:UIPanel>

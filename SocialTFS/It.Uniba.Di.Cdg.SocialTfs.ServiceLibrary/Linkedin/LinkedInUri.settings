@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.Linkedin" GeneratedClassName="LinkedInUri">
+  <Profiles />
+  <Settings>
+    <Setting Name="VERIFY_CREDENTIALS" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/v1/people/~:(id,picture-url)?format=json</Value>
+    </Setting>
+    <Setting Name="SKILLS" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/v1/people/~:(skills)?format=json</Value>
+    </Setting>
+    <Setting Name="FRIENDS" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/v1/people/~/connections?format=json</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

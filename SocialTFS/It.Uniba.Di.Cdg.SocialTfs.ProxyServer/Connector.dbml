@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SocialTFS" Class="ConnectorDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(local);Initial Catalog=SocialTFS;User ID=SocialTFS" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SocialTFSConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Avatar" Member="Avatars">
+    <Type Name="Avatar">
+      <Column Name="uri" Type="System.String" DbType="NVarChar(512) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="chosenFeature" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="ChosenFeature_Avatar" Member="ChosenFeature" ThisKey="chosenFeature" OtherKey="id" Type="ChosenFeature" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DynamicFriend" Member="DynamicFriends">
+    <Type Name="DynamicFriend">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[user]" Member="user" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="chosenFeature" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="User_DynamicFriend" Member="User" ThisKey="user" OtherKey="id" Type="User" IsForeignKey="true" />
+      <Association Name="ChosenFeature_DynamicFriend" Member="ChosenFeature" ThisKey="chosenFeature" OtherKey="id" Type="ChosenFeature" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Feature" Member="Features">
+    <Type Name="Feature">
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="[public]" Member="public" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Feature_FeatureScore" Member="FeatureScores" ThisKey="name" OtherKey="feature" Type="FeatureScore" />
+      <Association Name="Feature_ChosenFeature" Member="ChosenFeatures" ThisKey="name" OtherKey="feature" Type="ChosenFeature" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Post" Member="Posts">
+    <Type Name="Post">
+      <Column Name="id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="chosenFeature" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="idOnService" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="message" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="createAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="ChosenFeature_Post" Member="ChosenFeature" ThisKey="chosenFeature" OtherKey="id" Type="ChosenFeature" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PreregisteredService" Member="PreregisteredServices">
+    <Type Name="PreregisteredService">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="host" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="service" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="consumerKey" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="consumerSecret" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Service_PreregisteredService" Member="Service" ThisKey="service" OtherKey="id" Type="Service" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Service" Member="Services">
+    <Type Name="Service">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="requestToken" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="authorize" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="accessToken" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="version" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Service_PreregisteredService" Member="PreregisteredServices" ThisKey="id" OtherKey="service" Type="PreregisteredService" />
+      <Association Name="Service_ServiceInstance" Member="ServiceInstances" ThisKey="id" OtherKey="service" Type="ServiceInstance" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ServiceInstance" Member="ServiceInstances">
+    <Type Name="ServiceInstance">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="host" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="service" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="consumerKey" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="consumerSecret" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="ServiceInstance_FeatureScore" Member="FeatureScores" ThisKey="id" OtherKey="serviceInstance" Type="FeatureScore" />
+      <Association Name="ServiceInstance_Registration" Member="Registrations" ThisKey="id" OtherKey="serviceInstance" Type="Registration" />
+      <Association Name="Service_ServiceInstance" Member="Service" ThisKey="service" OtherKey="id" Type="Service" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Skills" Member="Skills">
+    <Type Name="Skill">
+      <Column Name="chosenFeature" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="skill" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="ChosenFeature_Skill" Member="ChosenFeature" ThisKey="chosenFeature" OtherKey="id" Type="ChosenFeature" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StaticFriend" Member="StaticFriends">
+    <Type Name="StaticFriend">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[user]" Member="user" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="friend" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="User_StaticFriend" Member="Friend" Storage="_UserFriend" ThisKey="friend" OtherKey="id" Type="User" IsForeignKey="true" />
+      <Association Name="User_StaticFriend1" Member="User" ThisKey="user" OtherKey="id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Suggestion" Member="Suggestions">
+    <Type Name="Suggestion">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[user]" Member="user" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="chosenFeature" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="User_Suggestion" Member="User" ThisKey="user" OtherKey="id" Type="User" IsForeignKey="true" />
+      <Association Name="ChosenFeature_Suggestion" Member="ChosenFeature" ThisKey="chosenFeature" OtherKey="id" Type="ChosenFeature" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Setting" Member="Settings">
+    <Type Name="Setting">
+      <Column Name="[key]" Member="key" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="value" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.Data.Linq.Binary" DbType="VarBinary(4000) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="avatar" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="isAdmin" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="User_DynamicFriend" Member="DynamicFriends" ThisKey="id" OtherKey="user" Type="DynamicFriend" />
+      <Association Name="User_StaticFriend" Member="StaticFriends" ThisKey="id" OtherKey="friend" Type="StaticFriend" />
+      <Association Name="User_StaticFriend1" Member="StaticFriends1" ThisKey="id" OtherKey="user" Type="StaticFriend" />
+      <Association Name="User_Suggestion" Member="Suggestions" ThisKey="id" OtherKey="user" Type="Suggestion" />
+      <Association Name="User_InteractiveFriend" Member="InteractiveFriends" ThisKey="id" OtherKey="user" Type="InteractiveFriend" />
+      <Association Name="User_Registration" Member="Registrations" ThisKey="id" OtherKey="user" Type="Registration" />
+      <Association Name="User_Hidden" Member="Hiddens" ThisKey="id" OtherKey="friend" Type="Hidden" />
+      <Association Name="User_Hidden1" Member="Hiddens1" ThisKey="id" OtherKey="user" Type="Hidden" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FeatureScore" Member="FeatureScores">
+    <Type Name="FeatureScore">
+      <Column Name="serviceInstance" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="feature" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="score" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Feature_FeatureScore" Member="Feature" ThisKey="feature" OtherKey="name" Type="Feature" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="ServiceInstance_FeatureScore" Member="ServiceInstance" ThisKey="serviceInstance" OtherKey="id" Type="ServiceInstance" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InteractiveFriend" Member="InteractiveFriends">
+    <Type Name="InteractiveFriend">
+      <Column Name="id" Storage="_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[user]" Member="user" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="chosenFeature" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="collection" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="interactiveObject" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="objectType" Type="System.String" DbType="NVarChar(8) NOT NULL" CanBeNull="false" />
+      <Association Name="User_InteractiveFriend" Member="User" ThisKey="user" OtherKey="id" Type="User" IsForeignKey="true" />
+      <Association Name="ChosenFeature_InteractiveFriend" Member="ChosenFeature" ThisKey="chosenFeature" OtherKey="id" Type="ChosenFeature" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ChosenFeature" Member="ChosenFeatures">
+    <Type Name="ChosenFeature">
+      <Column Name="id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[user]" Member="user" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="serviceInstance" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="feature" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="lastDownload" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="ChosenFeature_Avatar" Member="Avatars" ThisKey="id" OtherKey="chosenFeature" Type="Avatar" />
+      <Association Name="ChosenFeature_DynamicFriend" Member="DynamicFriends" ThisKey="id" OtherKey="chosenFeature" Type="DynamicFriend" />
+      <Association Name="ChosenFeature_Post" Member="Posts" ThisKey="id" OtherKey="chosenFeature" Type="Post" />
+      <Association Name="ChosenFeature_Skill" Member="Skills" ThisKey="id" OtherKey="chosenFeature" Type="Skill" />
+      <Association Name="ChosenFeature_Suggestion" Member="Suggestions" ThisKey="id" OtherKey="chosenFeature" Type="Suggestion" />
+      <Association Name="ChosenFeature_InteractiveFriend" Member="InteractiveFriends" ThisKey="id" OtherKey="chosenFeature" Type="InteractiveFriend" />
+      <Association Name="Feature_ChosenFeature" Member="Feature" ThisKey="feature" OtherKey="name" Type="Feature" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Registration_ChosenFeature" Member="Registration" ThisKey="user,serviceInstance" OtherKey="user,serviceInstance" Type="Registration" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Registration" Member="Registrations">
+    <Type Name="Registration">
+      <Column Name="[user]" Member="user" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="serviceInstance" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nameOnService" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="idOnService" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="accessToken" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="accessSecret" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Registration_ChosenFeature" Member="ChosenFeatures" ThisKey="user,serviceInstance" OtherKey="user,serviceInstance" Type="ChosenFeature" />
+      <Association Name="ServiceInstance_Registration" Member="ServiceInstance" ThisKey="serviceInstance" OtherKey="id" Type="ServiceInstance" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="User_Registration" Member="User" ThisKey="user" OtherKey="id" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Hidden" Member="Hiddens">
+    <Type Name="Hidden">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[user]" Member="user" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="friend" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="timeline" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
+      <Association Name="User_Hidden" Member="Friend" ThisKey="friend" OtherKey="id" Type="User" IsForeignKey="true" />
+      <Association Name="User_Hidden1" Member="User" ThisKey="user" OtherKey="id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.EncDecRc4" Method="EncDecRc4" IsComposable="true">
+    <Parameter Name="Pwd" Parameter="pwd" Type="System.String" DbType="VarChar(256)" />
+    <Parameter Name="Text" Parameter="text" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.Encrypt" Method="Encrypt" IsComposable="true">
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(4000)" />
+    <Return Type="System.Data.Linq.Binary" />
+  </Function>
+</Database>

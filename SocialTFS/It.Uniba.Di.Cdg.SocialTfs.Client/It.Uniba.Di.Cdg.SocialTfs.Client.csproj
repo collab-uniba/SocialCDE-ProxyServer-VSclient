@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30424</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8BAA9506-B930-47C2-A80C-38ED25DA2506}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <StartupObject>
+    </StartupObject>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>It.Uniba.Di.Cdg.SocialTfs.Client</AssemblyName>
+    <DeploymentDirectory>.\bin\</DeploymentDirectory>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <IncrementalBuild>false</IncrementalBuild>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <IncrementalBuild>false</IncrementalBuild>
+    <DocumentationFile>It.Uniba.Di.Cdg.SocialTfs.Client.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>It.Uniba.Di.Cdg.SocialTfs.Client</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>true</DelaySign>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Extensibility, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Log4Net\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualStudio.TeamFoundation, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\PrivateAssemblies\Microsoft.VisualStudio.TeamFoundation.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Objects\MenuItemWithLink.cs" />
+    <Compile Include="Objects\UIPreview.xaml.cs">
+      <DependentUpon>UIPreview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProxyWrapper.cs" />
+    <Compile Include="Popups\UIAvatars.xaml.cs">
+      <DependentUpon>UIAvatars.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\UIBusy.xaml.cs">
+      <DependentUpon>UIBusy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\UIHideUser.xaml.cs">
+      <DependentUpon>UIHideUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\UISettings.xaml.cs">
+      <DependentUpon>UISettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\UIColleague.xaml.cs">
+      <DependentUpon>UIColleague.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\UIFeatures.xaml.cs">
+      <DependentUpon>UIFeatures.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\UILittleBusy.xaml.cs">
+      <DependentUpon>UILittleBusy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\UILostConnection.xaml.cs">
+      <DependentUpon>UILostConnection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\UIPanel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Objects\UIPerson.xaml.cs">
+      <DependentUpon>UIPerson.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\UIPeople.xaml.cs">
+      <DependentUpon>UIPeople.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Containers\UILogin.xaml.cs">
+      <DependentUpon>UILogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\UIPinPanel.xaml.cs">
+      <DependentUpon>UIPinPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Containers\UIRegistration.xaml.cs">
+      <DependentUpon>UIRegistration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\UISendPost.xaml.cs">
+      <DependentUpon>UISendPost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\UIService.xaml.cs">
+      <DependentUpon>UIService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Connect.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClientUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ClientUserControl.Designer.cs">
+      <DependentUpon>ClientUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\UIPost.xaml.cs">
+      <DependentUpon>UIPost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Setting.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Setting.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Containers\UIClient.xaml.cs">
+      <DependentUpon>UIClient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIController.cs" />
+    <Compile Include="Panels\UIProfile.xaml.cs">
+      <DependentUpon>UIProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\UISkills.xaml.cs">
+      <DependentUpon>UISkills.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\UIMicroblog.xaml.cs">
+      <DependentUpon>UIMicroblog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\UILoading.xaml.cs">
+      <DependentUpon>UILoading.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\UITFSLogin.xaml.cs">
+      <DependentUpon>UITFSLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\UITimeline.xaml.cs">
+      <DependentUpon>UITimeline.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\UICustomButton.xaml.cs">
+      <DependentUpon>UICustomButton.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="EnvDTE">
+      <Guid>{80CC9F66-E7D8-4DDD-85B6-D9E6CD0E93E2}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="EnvDTE100">
+      <Guid>{26AD1324-4B7C-44BC-84F8-B86AED45729F}</Guid>
+      <VersionMajor>10</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="EnvDTE80">
+      <Guid>{1A31287A-4D7D-413E-8E32-3B374931BD89}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="EnvDTE90">
+      <Guid>{2CE2370E-D744-4936-A090-3FFFE667B0E1}</Guid>
+      <VersionMajor>9</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.VisualStudio.CommandBars">
+      <Guid>{1CBA492E-7263-47BB-87FE-639000619B15}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="SHDocVw">
+      <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Log4Net\log4net.dll" />
+    <Content Include="Log4Net\log4net.xml" />
+    <Resource Include="Images\Wallpaper.png" />
+    <Resource Include="Images\Baloon.png" />
+    <Resource Include="Images\DefaultAvatar.png" />
+    <Resource Include="Images\Toolbar\IterationTimeline.png" />
+    <Resource Include="Images\Toolbar\Home.png" />
+    <Resource Include="Images\Toolbar\InteractiveTimeline.png" />
+    <Resource Include="Images\Toolbar\Logout.png" />
+    <Resource Include="Images\Toolbar\People.png" />
+    <Resource Include="Images\Toolbar\Skills.png" />
+    <Resource Include="Images\Toolbar\Back.png" />
+    <Resource Include="Images\Toolbar\Follow.png" />
+    <Resource Include="Images\Toolbar\Unfollow.png" />
+    <Resource Include="Images\Toolbar\Reconnect.png" />
+    <Resource Include="Images\Toolbar\Settings.png" />
+    <Resource Include="Images\Toolbar\Hide.png" />
+    <Content Include="Images\Toolbar\Souces\Back.svg" />
+    <Content Include="Images\Toolbar\Souces\Down.svg" />
+    <Content Include="Images\Toolbar\Souces\IterationTimeline.svg" />
+    <Content Include="Images\Toolbar\Souces\Follow.svg" />
+    <Content Include="Images\Toolbar\Souces\Hide.svg" />
+    <Content Include="Images\Toolbar\Souces\Home.svg" />
+    <Content Include="Images\Toolbar\Souces\InteractiveTimeline.svg" />
+    <Content Include="Images\Toolbar\Souces\Left.svg" />
+    <Content Include="Images\Toolbar\Souces\Logout.svg" />
+    <Content Include="Images\Toolbar\Souces\People.svg" />
+    <Content Include="Images\Toolbar\Souces\Reconnect.svg" />
+    <Content Include="Images\Toolbar\Souces\Right.svg" />
+    <Content Include="Images\Toolbar\Souces\Settings.svg" />
+    <Content Include="Images\Toolbar\Souces\Skills.svg" />
+    <Content Include="Images\Toolbar\Souces\Unfollow.svg" />
+    <Content Include="Images\Toolbar\Souces\Up.svg" />
+    <Content Include="It.Uniba.Di.Cdg.SocialTfs.Client.AddIn">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ClientUserControl.resx">
+      <DependentUpon>ClientUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Objects\UIPreview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popups\UIAvatars.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Objects\UIBusy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popups\UIHideUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popups\UISettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Panels\UIColleague.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popups\UIFeatures.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Objects\UILittleBusy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popups\UILostConnection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Objects\UIPerson.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Panels\UIPeople.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Containers\UILogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popups\UIPinPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Containers\UIRegistration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Objects\UISendPost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Objects\UIService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Objects\UIPost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Containers\UIClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Panels\UIProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Panels\UISkills.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Panels\UIMicroblog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popups\UILoading.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popups\UITFSLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Objects\UITimeline.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Objects\UICustomButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Setting.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Setting.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\It.Uniba.Di.Cdg.SocialTfs.SharedLibrary\It.Uniba.Di.Cdg.SocialTfs.SharedLibrary.csproj">
+      <Project>{74053378-ACDA-46C4-A41C-C37F9C1B739E}</Project>
+      <Name>It.Uniba.Di.Cdg.SocialTfs.SharedLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <ProjectExtensions />
+  <Target Name="AfterBuild">
+    <PropertyGroup>
+      <DllName>$(AssemblyName).dll</DllName>
+      <PdbName>$(AssemblyName).pdb</PdbName>
+      <DocFileName>$(AssemblyName).xml</DocFileName>
+    </PropertyGroup>
+    <Delete Condition="Exists('$(DeploymentDirectory)$(DllName)')" Files="$(DeploymentDirectory)$(DllName)">
+    </Delete>
+    <Delete Condition="Exists('$(DeploymentDirectory)$(PdbName)')" Files="$(DeploymentDirectory)$(PdbName)">
+    </Delete>
+    <Delete Condition="Exists('$(DeploymentDirectory)$(DocFileName)')" Files="$(DeploymentDirectory)$(DocFileName)">
+    </Delete>
+    <Copy Condition="Exists('$(OutputPath)$(DllName)')" SourceFiles="$(OutputPath)$(DllName)" DestinationFolder="$(DeploymentDirectory)">
+      <Output TaskParameter="DestinationFiles" ItemName="FileWrites" />
+    </Copy>
+    <Copy Condition="Exists('$(OutputPath)$(PdbName)')" SourceFiles="$(OutputPath)$(PdbName)" DestinationFolder="$(DeploymentDirectory)">
+      <Output TaskParameter="DestinationFiles" ItemName="FileWrites" />
+    </Copy>
+    <Copy Condition="Exists('$(OutputPath)$(DocFileName)')" SourceFiles="$(OutputPath)$(DocFileName)" DestinationFolder="$(DeploymentDirectory)">
+      <Output TaskParameter="DestinationFiles" ItemName="FileWrites" />
+    </Copy>
+  </Target>
+</Project>

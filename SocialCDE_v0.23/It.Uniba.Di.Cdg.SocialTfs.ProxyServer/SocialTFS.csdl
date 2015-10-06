@@ -1,0 +1,658 @@
+<Schema Namespace="SocialTFSModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="SocialTFSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Avatar" EntityType="SocialTFSModel.Avatar" />
+    <EntitySet Name="ChosenFeature" EntityType="SocialTFSModel.ChosenFeature" />
+    <EntitySet Name="DynamicFriend" EntityType="SocialTFSModel.DynamicFriend" />
+    <EntitySet Name="Educations" EntityType="SocialTFSModel.Educations" />
+    <EntitySet Name="Feature" EntityType="SocialTFSModel.Feature" />
+    <EntitySet Name="FeatureScore" EntityType="SocialTFSModel.FeatureScore" />
+    <EntitySet Name="Hidden" EntityType="SocialTFSModel.Hidden" />
+    <EntitySet Name="InteractiveFriend" EntityType="SocialTFSModel.InteractiveFriend" />
+    <EntitySet Name="Positions" EntityType="SocialTFSModel.Positions" />
+    <EntitySet Name="Post" EntityType="SocialTFSModel.Post" />
+    <EntitySet Name="PreregisteredService" EntityType="SocialTFSModel.PreregisteredService" />
+    <EntitySet Name="Registration" EntityType="SocialTFSModel.Registration" />
+    <EntitySet Name="Service" EntityType="SocialTFSModel.Service" />
+    <EntitySet Name="ServiceInstance" EntityType="SocialTFSModel.ServiceInstance" />
+    <EntitySet Name="Setting" EntityType="SocialTFSModel.Setting" />
+    <EntitySet Name="Skills" EntityType="SocialTFSModel.Skills" />
+    <EntitySet Name="StaticFriend" EntityType="SocialTFSModel.StaticFriend" />
+    <EntitySet Name="Suggestion" EntityType="SocialTFSModel.Suggestion" />
+    <EntitySet Name="sysdiagrams" EntityType="SocialTFSModel.sysdiagrams" />
+    <EntitySet Name="User" EntityType="SocialTFSModel.User" />
+    <AssociationSet Name="FK_Avatar_ChosenFeature" Association="SocialTFSModel.FK_Avatar_ChosenFeature">
+      <End Role="ChosenFeature" EntitySet="ChosenFeature" />
+      <End Role="Avatar" EntitySet="Avatar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChosenFeature_Feature" Association="SocialTFSModel.FK_ChosenFeature_Feature">
+      <End Role="Feature" EntitySet="Feature" />
+      <End Role="ChosenFeature" EntitySet="ChosenFeature" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChosenFeature_Registration" Association="SocialTFSModel.FK_ChosenFeature_Registration">
+      <End Role="Registration" EntitySet="Registration" />
+      <End Role="ChosenFeature" EntitySet="ChosenFeature" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DynamicFriend_ChosenFeature" Association="SocialTFSModel.FK_DynamicFriend_ChosenFeature">
+      <End Role="ChosenFeature" EntitySet="ChosenFeature" />
+      <End Role="DynamicFriend" EntitySet="DynamicFriend" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Educations_ChosenFeature" Association="SocialTFSModel.FK_Educations_ChosenFeature">
+      <End Role="ChosenFeature" EntitySet="ChosenFeature" />
+      <End Role="Educations" EntitySet="Educations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InteractiveFriend_ChosenFeature" Association="SocialTFSModel.FK_InteractiveFriend_ChosenFeature">
+      <End Role="ChosenFeature" EntitySet="ChosenFeature" />
+      <End Role="InteractiveFriend" EntitySet="InteractiveFriend" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Positions_ChosenFeature" Association="SocialTFSModel.FK_Positions_ChosenFeature">
+      <End Role="ChosenFeature" EntitySet="ChosenFeature" />
+      <End Role="Positions" EntitySet="Positions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_ChosenFeature" Association="SocialTFSModel.FK_Post_ChosenFeature">
+      <End Role="ChosenFeature" EntitySet="ChosenFeature" />
+      <End Role="Post" EntitySet="Post" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Skills_ChosenFeature" Association="SocialTFSModel.FK_Skills_ChosenFeature">
+      <End Role="ChosenFeature" EntitySet="ChosenFeature" />
+      <End Role="Skills" EntitySet="Skills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Suggestion_ChosenFeature" Association="SocialTFSModel.FK_Suggestion_ChosenFeature">
+      <End Role="ChosenFeature" EntitySet="ChosenFeature" />
+      <End Role="Suggestion" EntitySet="Suggestion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DynamicFriend_User" Association="SocialTFSModel.FK_DynamicFriend_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="DynamicFriend" EntitySet="DynamicFriend" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeatureScore_Feature" Association="SocialTFSModel.FK_FeatureScore_Feature">
+      <End Role="Feature" EntitySet="Feature" />
+      <End Role="FeatureScore" EntitySet="FeatureScore" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeatureScore_ServiceInstance" Association="SocialTFSModel.FK_FeatureScore_ServiceInstance">
+      <End Role="ServiceInstance" EntitySet="ServiceInstance" />
+      <End Role="FeatureScore" EntitySet="FeatureScore" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HiddenFriend_User" Association="SocialTFSModel.FK_HiddenFriend_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Hidden" EntitySet="Hidden" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HiddenUser_User" Association="SocialTFSModel.FK_HiddenUser_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Hidden" EntitySet="Hidden" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InteractiveFriend_User" Association="SocialTFSModel.FK_InteractiveFriend_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="InteractiveFriend" EntitySet="InteractiveFriend" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PreregisteredService_Service" Association="SocialTFSModel.FK_PreregisteredService_Service">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="PreregisteredService" EntitySet="PreregisteredService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Registration_ServiceInstance" Association="SocialTFSModel.FK_Registration_ServiceInstance">
+      <End Role="ServiceInstance" EntitySet="ServiceInstance" />
+      <End Role="Registration" EntitySet="Registration" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Registration_User" Association="SocialTFSModel.FK_Registration_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Registration" EntitySet="Registration" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceInstance_Service" Association="SocialTFSModel.FK_ServiceInstance_Service">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="ServiceInstance" EntitySet="ServiceInstance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FriendFriend_User" Association="SocialTFSModel.FK_FriendFriend_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="StaticFriend" EntitySet="StaticFriend" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FriendUser_User" Association="SocialTFSModel.FK_FriendUser_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="StaticFriend" EntitySet="StaticFriend" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Suggestion_User" Association="SocialTFSModel.FK_Suggestion_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Suggestion" EntitySet="Suggestion" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Avatar">
+    <Key>
+      <PropertyRef Name="pk_uri" />
+    </Key>
+    <Property Name="pk_uri" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="fk_chosenFeature" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="ChosenFeature" Relationship="SocialTFSModel.FK_Avatar_ChosenFeature" FromRole="Avatar" ToRole="ChosenFeature" />
+  </EntityType>
+  <EntityType Name="ChosenFeature">
+    <Key>
+      <PropertyRef Name="pk_id" />
+    </Key>
+    <Property Name="pk_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fk_user" Type="Int32" Nullable="false" />
+    <Property Name="fk_serviceInstance" Type="Int32" Nullable="false" />
+    <Property Name="fk_feature" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="lastDownload" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Avatar" Relationship="SocialTFSModel.FK_Avatar_ChosenFeature" FromRole="ChosenFeature" ToRole="Avatar" />
+    <NavigationProperty Name="Feature" Relationship="SocialTFSModel.FK_ChosenFeature_Feature" FromRole="ChosenFeature" ToRole="Feature" />
+    <NavigationProperty Name="Registration" Relationship="SocialTFSModel.FK_ChosenFeature_Registration" FromRole="ChosenFeature" ToRole="Registration" />
+    <NavigationProperty Name="DynamicFriend" Relationship="SocialTFSModel.FK_DynamicFriend_ChosenFeature" FromRole="ChosenFeature" ToRole="DynamicFriend" />
+    <NavigationProperty Name="Educations" Relationship="SocialTFSModel.FK_Educations_ChosenFeature" FromRole="ChosenFeature" ToRole="Educations" />
+    <NavigationProperty Name="InteractiveFriend" Relationship="SocialTFSModel.FK_InteractiveFriend_ChosenFeature" FromRole="ChosenFeature" ToRole="InteractiveFriend" />
+    <NavigationProperty Name="Positions" Relationship="SocialTFSModel.FK_Positions_ChosenFeature" FromRole="ChosenFeature" ToRole="Positions" />
+    <NavigationProperty Name="Post" Relationship="SocialTFSModel.FK_Post_ChosenFeature" FromRole="ChosenFeature" ToRole="Post" />
+    <NavigationProperty Name="Skills" Relationship="SocialTFSModel.FK_Skills_ChosenFeature" FromRole="ChosenFeature" ToRole="Skills" />
+    <NavigationProperty Name="Suggestion" Relationship="SocialTFSModel.FK_Suggestion_ChosenFeature" FromRole="ChosenFeature" ToRole="Suggestion" />
+  </EntityType>
+  <EntityType Name="DynamicFriend">
+    <Key>
+      <PropertyRef Name="pk_id" />
+    </Key>
+    <Property Name="pk_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fk_user" Type="Int32" Nullable="false" />
+    <Property Name="fk_chosenFeature" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="ChosenFeature" Relationship="SocialTFSModel.FK_DynamicFriend_ChosenFeature" FromRole="DynamicFriend" ToRole="ChosenFeature" />
+    <NavigationProperty Name="User" Relationship="SocialTFSModel.FK_DynamicFriend_User" FromRole="DynamicFriend" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Educations">
+    <Key>
+      <PropertyRef Name="pk_id" />
+    </Key>
+    <Property Name="fk_chosenFeature" Type="Int64" Nullable="false" />
+    <Property Name="pk_id" Type="Int64" Nullable="false" />
+    <Property Name="fieldOfStudy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="schoolName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ChosenFeature" Relationship="SocialTFSModel.FK_Educations_ChosenFeature" FromRole="Educations" ToRole="ChosenFeature" />
+  </EntityType>
+  <EntityType Name="Feature">
+    <Key>
+      <PropertyRef Name="pk_name" />
+    </Key>
+    <Property Name="pk_name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="public" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ChosenFeature" Relationship="SocialTFSModel.FK_ChosenFeature_Feature" FromRole="Feature" ToRole="ChosenFeature" />
+    <NavigationProperty Name="FeatureScore" Relationship="SocialTFSModel.FK_FeatureScore_Feature" FromRole="Feature" ToRole="FeatureScore" />
+  </EntityType>
+  <EntityType Name="FeatureScore">
+    <Key>
+      <PropertyRef Name="pk_fk_serviceInstance" />
+      <PropertyRef Name="pk_fk_feature" />
+    </Key>
+    <Property Name="pk_fk_serviceInstance" Type="Int32" Nullable="false" />
+    <Property Name="pk_fk_feature" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="score" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Feature" Relationship="SocialTFSModel.FK_FeatureScore_Feature" FromRole="FeatureScore" ToRole="Feature" />
+    <NavigationProperty Name="ServiceInstance" Relationship="SocialTFSModel.FK_FeatureScore_ServiceInstance" FromRole="FeatureScore" ToRole="ServiceInstance" />
+  </EntityType>
+  <EntityType Name="Hidden">
+    <Key>
+      <PropertyRef Name="pk_id" />
+    </Key>
+    <Property Name="pk_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fk_user" Type="Int32" Nullable="false" />
+    <Property Name="fk_friend" Type="Int32" Nullable="false" />
+    <Property Name="timeline" Type="String" Nullable="false" MaxLength="11" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Friend" Relationship="SocialTFSModel.FK_HiddenFriend_User" FromRole="Hidden" ToRole="User" />
+    <NavigationProperty Name="User" Relationship="SocialTFSModel.FK_HiddenUser_User" FromRole="Hidden" ToRole="User" />
+  </EntityType>
+  <EntityType Name="InteractiveFriend">
+    <Key>
+      <PropertyRef Name="pk_id" />
+    </Key>
+    <Property Name="pk_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fk_user" Type="Int32" Nullable="false" />
+    <Property Name="fk_chosenFeature" Type="Int64" Nullable="false" />
+    <Property Name="collection" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="interactiveObject" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="objectType" Type="String" Nullable="false" MaxLength="8" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ChosenFeature" Relationship="SocialTFSModel.FK_InteractiveFriend_ChosenFeature" FromRole="InteractiveFriend" ToRole="ChosenFeature" />
+    <NavigationProperty Name="User" Relationship="SocialTFSModel.FK_InteractiveFriend_User" FromRole="InteractiveFriend" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Positions">
+    <Key>
+      <PropertyRef Name="pk_id" />
+    </Key>
+    <Property Name="fk_chosenFeature" Type="Int64" Nullable="false" />
+    <Property Name="pk_id" Type="Int64" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="industry" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ChosenFeature" Relationship="SocialTFSModel.FK_Positions_ChosenFeature" FromRole="Positions" ToRole="ChosenFeature" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="pk_id" />
+    </Key>
+    <Property Name="pk_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fk_chosenFeature" Type="Int64" Nullable="false" />
+    <Property Name="idOnService" Type="Int64" />
+    <Property Name="message" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="createAt" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="ChosenFeature" Relationship="SocialTFSModel.FK_Post_ChosenFeature" FromRole="Post" ToRole="ChosenFeature" />
+  </EntityType>
+  <EntityType Name="PreregisteredService">
+    <Key>
+      <PropertyRef Name="pk_id" />
+    </Key>
+    <Property Name="pk_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="host" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="service" Type="Int32" Nullable="false" />
+    <Property Name="consumerKey" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="consumerSecret" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Service1" Relationship="SocialTFSModel.FK_PreregisteredService_Service" FromRole="PreregisteredService" ToRole="Service" />
+  </EntityType>
+  <EntityType Name="Registration">
+    <Key>
+      <PropertyRef Name="pk_fk_user" />
+      <PropertyRef Name="pk_fk_serviceInstance" />
+    </Key>
+    <Property Name="pk_fk_user" Type="Int32" Nullable="false" />
+    <Property Name="pk_fk_serviceInstance" Type="Int32" Nullable="false" />
+    <Property Name="nameOnService" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="idOnService" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="accessToken" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="accessSecret" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ChosenFeature" Relationship="SocialTFSModel.FK_ChosenFeature_Registration" FromRole="Registration" ToRole="ChosenFeature" />
+    <NavigationProperty Name="ServiceInstance" Relationship="SocialTFSModel.FK_Registration_ServiceInstance" FromRole="Registration" ToRole="ServiceInstance" />
+    <NavigationProperty Name="User" Relationship="SocialTFSModel.FK_Registration_User" FromRole="Registration" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="pk_id" />
+    </Key>
+    <Property Name="pk_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="image" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+    <Property Name="requestToken" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="authorize" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="accessToken" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="version" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PreregisteredService" Relationship="SocialTFSModel.FK_PreregisteredService_Service" FromRole="Service" ToRole="PreregisteredService" />
+    <NavigationProperty Name="ServiceInstance" Relationship="SocialTFSModel.FK_ServiceInstance_Service" FromRole="Service" ToRole="ServiceInstance" />
+  </EntityType>
+  <EntityType Name="ServiceInstance">
+    <Key>
+      <PropertyRef Name="pk_id" />
+    </Key>
+    <Property Name="pk_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="host" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="fk_service" Type="Int32" Nullable="false" />
+    <Property Name="consumerKey" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="consumerSecret" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="FeatureScore" Relationship="SocialTFSModel.FK_FeatureScore_ServiceInstance" FromRole="ServiceInstance" ToRole="FeatureScore" />
+    <NavigationProperty Name="Registration" Relationship="SocialTFSModel.FK_Registration_ServiceInstance" FromRole="ServiceInstance" ToRole="Registration" />
+    <NavigationProperty Name="Service" Relationship="SocialTFSModel.FK_ServiceInstance_Service" FromRole="ServiceInstance" ToRole="Service" />
+  </EntityType>
+  <EntityType Name="Setting">
+    <Key>
+      <PropertyRef Name="key" />
+    </Key>
+    <Property Name="key" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="value" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Skills">
+    <Key>
+      <PropertyRef Name="pk_fk_chosenFeature" />
+      <PropertyRef Name="pk_skill" />
+    </Key>
+    <Property Name="pk_fk_chosenFeature" Type="Int64" Nullable="false" />
+    <Property Name="pk_skill" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ChosenFeature" Relationship="SocialTFSModel.FK_Skills_ChosenFeature" FromRole="Skills" ToRole="ChosenFeature" />
+  </EntityType>
+  <EntityType Name="StaticFriend">
+    <Key>
+      <PropertyRef Name="pk_id" />
+    </Key>
+    <Property Name="pk_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fk_user" Type="Int32" Nullable="false" />
+    <Property Name="fk_friend" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Friend" Relationship="SocialTFSModel.FK_FriendFriend_User" FromRole="StaticFriend" ToRole="User" />
+    <NavigationProperty Name="User" Relationship="SocialTFSModel.FK_FriendUser_User" FromRole="StaticFriend" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Suggestion">
+    <Key>
+      <PropertyRef Name="pk_id" />
+    </Key>
+    <Property Name="pk_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user" Type="Int32" Nullable="false" />
+    <Property Name="fk_chosenFeature" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="ChosenFeature" Relationship="SocialTFSModel.FK_Suggestion_ChosenFeature" FromRole="Suggestion" ToRole="ChosenFeature" />
+    <NavigationProperty Name="User1" Relationship="SocialTFSModel.FK_Suggestion_User" FromRole="Suggestion" ToRole="User" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="pk_id" />
+    </Key>
+    <Property Name="pk_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="password" Type="Binary" Nullable="false" MaxLength="4000" FixedLength="false" />
+    <Property Name="avatar" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+    <Property Name="isAdmin" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="DynamicFriend" Relationship="SocialTFSModel.FK_DynamicFriend_User" FromRole="User" ToRole="DynamicFriend" />
+    <NavigationProperty Name="Hidden" Relationship="SocialTFSModel.FK_HiddenFriend_User" FromRole="User" ToRole="Hidden" />
+    <NavigationProperty Name="Hidden1" Relationship="SocialTFSModel.FK_HiddenUser_User" FromRole="User" ToRole="Hidden" />
+    <NavigationProperty Name="InteractiveFriend" Relationship="SocialTFSModel.FK_InteractiveFriend_User" FromRole="User" ToRole="InteractiveFriend" />
+    <NavigationProperty Name="Registration" Relationship="SocialTFSModel.FK_Registration_User" FromRole="User" ToRole="Registration" />
+    <NavigationProperty Name="StaticFriend" Relationship="SocialTFSModel.FK_FriendFriend_User" FromRole="User" ToRole="StaticFriend" />
+    <NavigationProperty Name="StaticFriend1" Relationship="SocialTFSModel.FK_FriendUser_User" FromRole="User" ToRole="StaticFriend" />
+    <NavigationProperty Name="Suggestion" Relationship="SocialTFSModel.FK_Suggestion_User" FromRole="User" ToRole="Suggestion" />
+  </EntityType>
+  <Association Name="FK_Avatar_ChosenFeature">
+    <End Role="ChosenFeature" Type="SocialTFSModel.ChosenFeature" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Avatar" Type="SocialTFSModel.Avatar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChosenFeature">
+        <PropertyRef Name="pk_id" />
+      </Principal>
+      <Dependent Role="Avatar">
+        <PropertyRef Name="fk_chosenFeature" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChosenFeature_Feature">
+    <End Role="Feature" Type="SocialTFSModel.Feature" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ChosenFeature" Type="SocialTFSModel.ChosenFeature" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Feature">
+        <PropertyRef Name="pk_name" />
+      </Principal>
+      <Dependent Role="ChosenFeature">
+        <PropertyRef Name="fk_feature" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChosenFeature_Registration">
+    <End Role="Registration" Type="SocialTFSModel.Registration" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ChosenFeature" Type="SocialTFSModel.ChosenFeature" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Registration">
+        <PropertyRef Name="pk_fk_user" />
+        <PropertyRef Name="pk_fk_serviceInstance" />
+      </Principal>
+      <Dependent Role="ChosenFeature">
+        <PropertyRef Name="fk_user" />
+        <PropertyRef Name="fk_serviceInstance" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DynamicFriend_ChosenFeature">
+    <End Role="ChosenFeature" Type="SocialTFSModel.ChosenFeature" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DynamicFriend" Type="SocialTFSModel.DynamicFriend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChosenFeature">
+        <PropertyRef Name="pk_id" />
+      </Principal>
+      <Dependent Role="DynamicFriend">
+        <PropertyRef Name="fk_chosenFeature" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Educations_ChosenFeature">
+    <End Role="ChosenFeature" Type="SocialTFSModel.ChosenFeature" Multiplicity="1" />
+    <End Role="Educations" Type="SocialTFSModel.Educations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChosenFeature">
+        <PropertyRef Name="pk_id" />
+      </Principal>
+      <Dependent Role="Educations">
+        <PropertyRef Name="fk_chosenFeature" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InteractiveFriend_ChosenFeature">
+    <End Role="ChosenFeature" Type="SocialTFSModel.ChosenFeature" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="InteractiveFriend" Type="SocialTFSModel.InteractiveFriend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChosenFeature">
+        <PropertyRef Name="pk_id" />
+      </Principal>
+      <Dependent Role="InteractiveFriend">
+        <PropertyRef Name="fk_chosenFeature" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Positions_ChosenFeature">
+    <End Role="ChosenFeature" Type="SocialTFSModel.ChosenFeature" Multiplicity="1" />
+    <End Role="Positions" Type="SocialTFSModel.Positions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChosenFeature">
+        <PropertyRef Name="pk_id" />
+      </Principal>
+      <Dependent Role="Positions">
+        <PropertyRef Name="fk_chosenFeature" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_ChosenFeature">
+    <End Role="ChosenFeature" Type="SocialTFSModel.ChosenFeature" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Post" Type="SocialTFSModel.Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChosenFeature">
+        <PropertyRef Name="pk_id" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="fk_chosenFeature" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Skills_ChosenFeature">
+    <End Role="ChosenFeature" Type="SocialTFSModel.ChosenFeature" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Skills" Type="SocialTFSModel.Skills" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChosenFeature">
+        <PropertyRef Name="pk_id" />
+      </Principal>
+      <Dependent Role="Skills">
+        <PropertyRef Name="pk_fk_chosenFeature" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Suggestion_ChosenFeature">
+    <End Role="ChosenFeature" Type="SocialTFSModel.ChosenFeature" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Suggestion" Type="SocialTFSModel.Suggestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChosenFeature">
+        <PropertyRef Name="pk_id" />
+      </Principal>
+      <Dependent Role="Suggestion">
+        <PropertyRef Name="fk_chosenFeature" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DynamicFriend_User">
+    <End Role="User" Type="SocialTFSModel.User" Multiplicity="1" />
+    <End Role="DynamicFriend" Type="SocialTFSModel.DynamicFriend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="pk_id" />
+      </Principal>
+      <Dependent Role="DynamicFriend">
+        <PropertyRef Name="fk_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeatureScore_Feature">
+    <End Role="Feature" Type="SocialTFSModel.Feature" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FeatureScore" Type="SocialTFSModel.FeatureScore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Feature">
+        <PropertyRef Name="pk_name" />
+      </Principal>
+      <Dependent Role="FeatureScore">
+        <PropertyRef Name="pk_fk_feature" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeatureScore_ServiceInstance">
+    <End Role="ServiceInstance" Type="SocialTFSModel.ServiceInstance" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FeatureScore" Type="SocialTFSModel.FeatureScore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceInstance">
+        <PropertyRef Name="pk_id" />
+      </Principal>
+      <Dependent Role="FeatureScore">
+        <PropertyRef Name="pk_fk_serviceInstance" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HiddenFriend_User">
+    <End Role="User" Type="SocialTFSModel.User" Multiplicity="1" />
+    <End Role="Hidden" Type="SocialTFSModel.Hidden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="pk_id" />
+      </Principal>
+      <Dependent Role="Hidden">
+        <PropertyRef Name="fk_friend" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HiddenUser_User">
+    <End Role="User" Type="SocialTFSModel.User" Multiplicity="1" />
+    <End Role="Hidden" Type="SocialTFSModel.Hidden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="pk_id" />
+      </Principal>
+      <Dependent Role="Hidden">
+        <PropertyRef Name="fk_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InteractiveFriend_User">
+    <End Role="User" Type="SocialTFSModel.User" Multiplicity="1" />
+    <End Role="InteractiveFriend" Type="SocialTFSModel.InteractiveFriend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="pk_id" />
+      </Principal>
+      <Dependent Role="InteractiveFriend">
+        <PropertyRef Name="fk_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PreregisteredService_Service">
+    <End Role="Service" Type="SocialTFSModel.Service" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PreregisteredService" Type="SocialTFSModel.PreregisteredService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="pk_id" />
+      </Principal>
+      <Dependent Role="PreregisteredService">
+        <PropertyRef Name="service" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Registration_ServiceInstance">
+    <End Role="ServiceInstance" Type="SocialTFSModel.ServiceInstance" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Registration" Type="SocialTFSModel.Registration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceInstance">
+        <PropertyRef Name="pk_id" />
+      </Principal>
+      <Dependent Role="Registration">
+        <PropertyRef Name="pk_fk_serviceInstance" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Registration_User">
+    <End Role="User" Type="SocialTFSModel.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Registration" Type="SocialTFSModel.Registration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="pk_id" />
+      </Principal>
+      <Dependent Role="Registration">
+        <PropertyRef Name="pk_fk_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceInstance_Service">
+    <End Role="Service" Type="SocialTFSModel.Service" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ServiceInstance" Type="SocialTFSModel.ServiceInstance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="pk_id" />
+      </Principal>
+      <Dependent Role="ServiceInstance">
+        <PropertyRef Name="fk_service" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FriendFriend_User">
+    <End Role="User" Type="SocialTFSModel.User" Multiplicity="1" />
+    <End Role="StaticFriend" Type="SocialTFSModel.StaticFriend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="pk_id" />
+      </Principal>
+      <Dependent Role="StaticFriend">
+        <PropertyRef Name="fk_friend" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FriendUser_User">
+    <End Role="User" Type="SocialTFSModel.User" Multiplicity="1" />
+    <End Role="StaticFriend" Type="SocialTFSModel.StaticFriend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="pk_id" />
+      </Principal>
+      <Dependent Role="StaticFriend">
+        <PropertyRef Name="fk_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Suggestion_User">
+    <End Role="User" Type="SocialTFSModel.User" Multiplicity="1" />
+    <End Role="Suggestion" Type="SocialTFSModel.Suggestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="pk_id" />
+      </Principal>
+      <Dependent Role="Suggestion">
+        <PropertyRef Name="user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

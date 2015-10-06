@@ -1,0 +1,48 @@
+﻿<UserControl xmlns:my="clr-namespace:It.Uniba.Di.Cdg.SocialTfs.Client.Objects"
+             x:Class="It.Uniba.Di.Cdg.SocialTfs.Client.Containers.UIClient"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" Background="#FFC2CCDB" >
+    <Grid Name="ClientGrid">
+        <Grid Name="ToolGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="22" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid Grid.ColumnSpan="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="22"/>
+                    <ColumnDefinition Width="22"/>
+                    <ColumnDefinition Width="22"/>
+                    <ColumnDefinition Width="22"/>
+                    <ColumnDefinition Width="22"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <my:UICustomButton x:Name="ProfileButton" ToolTip="Profile" Type="ToggleButton" Click="Button_Click" />
+                <my:UICustomButton x:Name="PeopleButton" ToolTip="People" Click="Button_Click" Type="ToggleButton" Grid.Column="1" />
+                <my:UICustomButton x:Name="HomeTimelineButton" ToolTip="Home Timeline" Type="ToggleButton" Click="Button_Click" Grid.Column="2" />
+                <my:UICustomButton x:Name="IterationTimelineButton" ToolTip="Iteration Timeline" Type="ToggleButton" Click="Button_Click" Grid.Column="3"  />
+                <my:UICustomButton x:Name="InteractiveTimelineButton" ToolTip="Interactive Timeline" Type="ToggleButton" Click="Button_Click" Grid.Column="4"  />
+            </Grid>
+            <Grid Name="DynamicToolbar" Grid.Row="1" Grid.ColumnSpan="4" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1px"/>
+                    <RowDefinition Height="1px"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Rectangle Grid.Row="0" Fill="#FF2C3D5B" />
+                <Rectangle Grid.Row="1" Fill="White" />
+                <my:UICustomButton x:Name="BackPanelButton" Grid.Row="2" ToolTip="Back" Width="32" HorizontalAlignment="Left" Click="BackPanelButton_Click" />
+            </Grid>
+            <Grid Name="ContentGrid" Grid.Row="2" Grid.ColumnSpan="4"/>
+        </Grid>
+    </Grid>
+</UserControl>

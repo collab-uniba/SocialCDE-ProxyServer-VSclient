@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.StatusNet" GeneratedClassName="StatusNetUri">
+  <Profiles />
+  <Settings>
+    <Setting Name="VERIFY_CREDENTIALS" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/api/account/verify_credentials.json</Value>
+    </Setting>
+    <Setting Name="UPDATE" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/api/statuses/update.json</Value>
+    </Setting>
+    <Setting Name="DESTROY" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/api/statuses/destroy.json</Value>
+    </Setting>
+    <Setting Name="USER_TIMELINE" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/api/statuses/user_timeline.json</Value>
+    </Setting>
+    <Setting Name="FOLLOWINGS" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/api/friends/ids.json</Value>
+    </Setting>
+    <Setting Name="FOLLOWERS" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/api/followers/ids.json</Value>
+    </Setting>
+    <Setting Name="USER" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/api/users/show.json</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

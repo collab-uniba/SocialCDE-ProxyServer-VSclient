@@ -1,0 +1,46 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel.Site" Codebehind="Site.master.cs" %>
+
+<!DOCTYPE HTML>
+<html>
+<head runat="server">
+    <title>SocialTFS</title>
+    <link href="Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    <span class="input">Social TFS</span></h1>
+            </div>
+            <div class="loginDisplay">
+                [ <asp:HyperLink ID="Login" runat="server" NavigateUrl="Login.aspx">Login</asp:HyperLink> ]
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" 
+                    EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="Default.aspx" Text="Home" Value="Home"/>
+                        <asp:MenuItem NavigateUrl="Services.aspx" Text="Services" Value="Services"/>
+                        <asp:MenuItem NavigateUrl="Users.aspx" Text="Users" Value="Users" />
+                        <asp:MenuItem NavigateUrl="Weights.aspx" Text="Weights" Value="Weights" />
+                        <asp:MenuItem NavigateUrl="Settings.aspx" Text="Settings" Value="Settings" />
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>

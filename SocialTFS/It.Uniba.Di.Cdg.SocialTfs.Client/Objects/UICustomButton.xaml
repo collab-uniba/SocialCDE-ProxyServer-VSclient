@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="It.Uniba.Di.Cdg.SocialTfs.Client.Objects.UICustomButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Background="#00000000"
+             Margin="0,2,0,2"
+             MouseEnter="MouseOverColor_MouseEnter" MouseLeave="MouseOverColor_MouseLeave" 
+             MouseUp="UserControl_MouseUp" Loaded="UserControl_Loaded">
+
+    <Grid>
+        <Border Name="Border" Visibility="Hidden" BorderThickness="1" BorderBrush="#FFE5C365" />
+        <Border Name="MouseOverColor" Visibility="Hidden" BorderThickness="1" BorderBrush="#FFE5C365">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Rectangle Grid.Row="0" Fill="#FFFFF5D7" />
+                <Rectangle Grid.Row="1" Fill="#FFFFECB5" />
+            </Grid>
+        </Border>
+        <Image Name="InternalImage" Margin="3" />
+        <TextBlock Name="InternalText" Margin="3" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Grid>
+
+</UserControl>

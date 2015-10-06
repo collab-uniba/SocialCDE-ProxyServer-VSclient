@@ -1,0 +1,57 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="It.Uniba.Di.Cdg.SocialTfs.OAuthLibrary" GeneratedClassName="OAuthConstants">
+  <Profiles />
+  <Settings>
+    <Setting Name="OAuthConsumerKeyKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">oauth_consumer_key</Value>
+    </Setting>
+    <Setting Name="OAuthCallbackKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">oauth_callback</Value>
+    </Setting>
+    <Setting Name="OAuthVersionKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">oauth_version</Value>
+    </Setting>
+    <Setting Name="OAuthSignatureMethodKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">oauth_signature_method</Value>
+    </Setting>
+    <Setting Name="OAuthSignatureKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">oauth_signature</Value>
+    </Setting>
+    <Setting Name="OAuthTimestampKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">oauth_timestamp</Value>
+    </Setting>
+    <Setting Name="OAuthNonceKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">oauth_nonce</Value>
+    </Setting>
+    <Setting Name="OAuthTokenKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">oauth_token</Value>
+    </Setting>
+    <Setting Name="OAuthTokenSecretKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">oauth_token_secret</Value>
+    </Setting>
+    <Setting Name="OAuthVerifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">oauth_verifier</Value>
+    </Setting>
+    <Setting Name="HMACSHA1SignatureType" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">HMAC-SHA1</Value>
+    </Setting>
+    <Setting Name="PlainTextSignatureType" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">PLAINTEXT</Value>
+    </Setting>
+    <Setting Name="RSASHA1SignatureType" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">RSA-SHA1</Value>
+    </Setting>
+    <Setting Name="unreservedChars" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.~àèéìòù</Value>
+    </Setting>
+    <Setting Name="OAuthVersion" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1.0</Value>
+    </Setting>
+    <Setting Name="OAuthParameterPrefix" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">oauth_</Value>
+    </Setting>
+    <Setting Name="Setting" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>
