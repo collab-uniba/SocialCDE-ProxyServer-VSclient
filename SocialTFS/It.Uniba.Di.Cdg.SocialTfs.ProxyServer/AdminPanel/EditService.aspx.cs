@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Linq;
 using It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary;
+using System.Diagnostics;
+using log4net;
+using log4net.Config;
 
 namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
 {
@@ -24,10 +27,14 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
         {
             ConnectorDataContext db = new ConnectorDataContext();
 
+            Stopwatch w = Stopwatch.StartNew();
             ServiceInstance service =
                    (from serin in db.ServiceInstances
                     where serin.id == Int32.Parse(Request.QueryString["id"])
                     select serin).Single();
+            w.Stop();
+            ILog log = LogManager.GetLogger("QueryLogger");
+            log.Info(" Elapsed time: " + w.Elapsed + ", select the service instances to edit");
             
             IService iService = ServiceFactory.getService(service.Service.name);
 
@@ -79,10 +86,14 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
 
             ConnectorDataContext db = new ConnectorDataContext();
 
+            Stopwatch w = Stopwatch.StartNew();
             ServiceInstance service =
                    (from serin in db.ServiceInstances
                     where serin.id == Int32.Parse(Request.QueryString["id"])
                     select serin).Single();
+            w.Stop();
+            ILog log = LogManager.GetLogger("QueryLogger");
+            log.Info(" Elapsed time: " + w.Elapsed + ", select the service instances to save");
 
             IService iService = ServiceFactory.getService(service.Service.name);
 
@@ -114,7 +125,11 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
                     service.consumerSecret = Request.Params["ctl00$MainContent$PasswordTB"];
                 }
 
+                Stopwatch w1 = Stopwatch.StartNew();
                 db.SubmitChanges();
+                w1.Stop();
+                ILog log1 = LogManager.GetLogger("QueryLogger");
+                log1.Info(" Elapsed time: " + w1.Elapsed + ", edit service");
             }
             
             Response.Redirect("Services.aspx");

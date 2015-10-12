@@ -5,6 +5,9 @@ using System.Web.UI.WebControls;
 using System.Xml.Linq;
 using It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary;
 using System.Collections.Generic;
+using System.Diagnostics;
+using log4net;
+using log4net.Config;
 
 namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
 {
@@ -31,11 +34,22 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
             ServiceSE.Items.Add(new ListItem());
             ConnectorDataContext db = new ConnectorDataContext();
 
-            foreach (Service item in db.Services.Where(s => s.name != "SocialTFS"))
+            Stopwatch w = Stopwatch.StartNew();
+            List<Service> serv = db.Services.Where(s => s.name != "SocialTFS").ToList();
+            w.Stop();
+            ILog log = LogManager.GetLogger("QueryLogger");
+            log.Info(" Elapsed time: " + w.Elapsed + ", select all services different from 'SocialTFS'");
+
+            foreach (Service item in serv)
             {
                 IService iService = ServiceFactory.getService(item.name);
+                Stopwatch w1 = Stopwatch.StartNew();
+                bool servInstance = db.ServiceInstances.Select(si => si.service).Contains(item.id);
+                w1.Stop();
+                ILog log1 = LogManager.GetLogger("QueryLogger");
+                log1.Info(" Elapsed time: " + w1.Elapsed + ", check if the service instance contains the service");
                 if (iService.GetPrivateFeatures().Contains(FeaturesType.MoreInstance) ||
-                    !db.ServiceInstances.Select(si => si.service).Contains(item.id))
+                    !servInstance)
                     ServiceSE.Items.Add(new ListItem(item.name, item.id.ToString()));
             }
         }
@@ -45,7 +59,12 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
             ConnectorDataContext db = new ConnectorDataContext();
             try
             {
-                IService iService = ServiceFactory.getService(db.Services.Where(s => s.id == Int32.Parse(Request.QueryString["id"])).Single().name);
+                Stopwatch w2 = Stopwatch.StartNew();
+                String serv = db.Services.Where(s => s.id == Int32.Parse(Request.QueryString["id"])).Single().name;
+                w2.Stop();
+                ILog log2 = LogManager.GetLogger("QueryLogger");
+                log2.Info(" Elapsed time: " + w2.Elapsed + ", select the name of the service");
+                IService iService = ServiceFactory.getService(serv);
 
                 XDocument xml = new XDocument(
                     new XElement("Root",
@@ -81,7 +100,11 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
             Service service = new Service();
             try
             {
+                Stopwatch w3 = Stopwatch.StartNew();
                 service = db.Services.Where(s => s.id == Int32.Parse(Request.Params["ctl00$MainContent$ServiceSE"])).Single();
+                w3.Stop();
+                ILog log3 = LogManager.GetLogger("QueryLogger");
+                log3.Info(" Elapsed time: " + w3.Elapsed + ", select the service to save it");
             }
             catch
             {
@@ -92,7 +115,11 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
             ServiceInstance serviceInstance = new ServiceInstance();
             if (!iService.GetPrivateFeatures().Contains(FeaturesType.MoreInstance))
             {
+                Stopwatch w4 = Stopwatch.StartNew();
                 PreregisteredService preser = db.PreregisteredServices.Where(ps => ps.service == service.id).Single();
+                w4.Stop();
+                ILog log4 = LogManager.GetLogger("QueryLogger");
+                log4.Info(" Elapsed time: " + w4.Elapsed + ", select the preregistered service to save the service");
 
                 serviceInstance.name = preser.name;
                 serviceInstance.host = preser.host;
@@ -100,7 +127,11 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
                 serviceInstance.consumerKey = preser.consumerKey;
                 serviceInstance.consumerSecret = preser.consumerSecret;
 
+                Stopwatch w5 = Stopwatch.StartNew();
                 db.ServiceInstances.InsertOnSubmit(serviceInstance);
+                w5.Stop();
+                ILog log5 = LogManager.GetLogger("QueryLogger");
+                log5.Info(" Elapsed time: " + w5.Elapsed + ", insert the service instance in a pending state");
             }
             else
             {
@@ -122,10 +153,18 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
                 serviceInstance.consumerKey = consumerKey;
                 serviceInstance.consumerSecret = consumerSecret;
 
+                Stopwatch w6 = Stopwatch.StartNew();
                 db.ServiceInstances.InsertOnSubmit(serviceInstance);
+                w6.Stop();
+                ILog log6 = LogManager.GetLogger("QueryLogger");
+                log6.Info(" Elapsed time: " + w6.Elapsed + ", insert the service instance in a pending state");    
             }
 
+            Stopwatch w7 = Stopwatch.StartNew();
             db.SubmitChanges();
+            w7.Stop();
+            ILog log7 = LogManager.GetLogger("QueryLogger");
+            log7.Info(" Elapsed time: " + w7.Elapsed + ", insert the service ");
 
             if (iService.GetPrivateFeatures().Contains(FeaturesType.Labels))
             {
@@ -134,16 +173,24 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
 
             foreach (FeaturesType featureType in iService.GetScoredFeatures())
             {
+                Stopwatch w8 = Stopwatch.StartNew();
                 db.FeatureScores.InsertOnSubmit(new FeatureScore()
                 {
                     serviceInstance = serviceInstance.id,
                     feature = featureType.ToString(),
                     score = 1
                 });
+                w8.Stop();
+                ILog log8 = LogManager.GetLogger("QueryLogger");
+                log8.Info(" Elapsed time: " + w8.Elapsed + ", insert the relative feature score in a pending state");
             }
             //TODO update the new version (leave comment from the next line)
             //dbService.version = newServiceVersion;
+            Stopwatch w9 = Stopwatch.StartNew();
             db.SubmitChanges();
+            w9.Stop();
+            ILog log9 = LogManager.GetLogger("QueryLogger");
+            log9.Info(" Elapsed time: " + w9.Elapsed + ", insert the feature score");
 
             Response.Redirect("Services.aspx");
         }
