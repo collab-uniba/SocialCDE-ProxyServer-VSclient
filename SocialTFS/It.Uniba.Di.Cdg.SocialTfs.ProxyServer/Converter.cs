@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using It.Uniba.Di.Cdg.SocialTfs.SharedLibrary;
 using It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary;
+using System.Diagnostics;
+using log4net;
+using log4net.Config;
 
 namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer
 {
@@ -26,16 +29,36 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer
 
             if (calculateInfos)
             {
+                Stopwatch w = Stopwatch.StartNew();
+                int stat = db.Posts.Where(p => p.ChosenFeature.user == userToConvert.id).Count();
+                w.Stop();
+                ILog log = LogManager.GetLogger("QueryLogger");
+                log.Info(" Elapsed time: " + w.Elapsed + ", user id: " + userToConvert.id + ", count the number of posts of an user for a certain chosen feature");
+                Stopwatch w1 = Stopwatch.StartNew();
+                int followings = db.StaticFriends.Where(sf => sf.User == userToConvert).Count();
+                w1.Stop();
+                ILog log1 = LogManager.GetLogger("QueryLogger");
+                log1.Info(" Elapsed time: " + w1.Elapsed + ", count the number of static friends of an user");
+                Stopwatch w2 = Stopwatch.StartNew();
+                int followers = db.StaticFriends.Where(sf => sf.Friend == userToConvert).Count();
+                w2.Stop();
+                ILog log2 = LogManager.GetLogger("QueryLogger");
+                log2.Info(" Elapsed time: " + w2.Elapsed + ", count the number of users that are static friends of an user");
+                Stopwatch w3 = Stopwatch.StartNew();
+                int followed = db.StaticFriends.Where(sf => sf.User == user && sf.Friend == userToConvert).Count();
+                w3.Stop();
+                ILog log3 = LogManager.GetLogger("QueryLogger");
+                log3.Info(" Elapsed time: " + w3.Elapsed + ", count the number of users that follow and are followed by an user");
                 result = new WUser()
                 {
                     Id = userToConvert.id,
                     Username = userToConvert.username,
                     Email = userToConvert.email,
                     Avatar = userToConvert.avatar,
-                    Statuses = db.Posts.Where(p => p.ChosenFeature.user == userToConvert.id).Count(),
-                    Followings = db.StaticFriends.Where(sf => sf.User == userToConvert).Count(),
-                    Followers = db.StaticFriends.Where(sf => sf.Friend == userToConvert).Count(),
-                    Followed = db.StaticFriends.Where(sf => sf.User == user && sf.Friend == userToConvert).Count() == 1
+                    Statuses = stat,
+                    Followings = followings,
+                    Followers = followers,
+                    Followed = followed == 1
                 };
             }
             else
@@ -96,7 +119,11 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer
             if (calculateFeature)
             {
                 bool isRegistered = false;
+                Stopwatch w = Stopwatch.StartNew();
                 IEnumerable<ServiceInstance> myServices = db.Registrations.Where(r => r.user == user.id).Select(r => r.ServiceInstance);
+                w.Stop();
+                ILog log = LogManager.GetLogger("QueryLogger");
+                log.Info(" Elapsed time: " + w.Elapsed + ", user id: " + user.id + ", select all service instances of an user");
                 if (myServices.Contains(serviceInstance))
                     isRegistered = true;
 

@@ -4,6 +4,10 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Xml.Linq;
 using It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary;
+using System.Diagnostics;
+using log4net;
+using log4net.Config;
+using System.Collections.Generic;
 
 namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
 {
@@ -22,7 +26,13 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
         {
             ConnectorDataContext db = new ConnectorDataContext();
 
-            foreach (var item in db.ServiceInstances.Where(s => s.Service.name != "SocialTFS"))
+            Stopwatch w = Stopwatch.StartNew();
+            List<ServiceInstance> sInstance = db.ServiceInstances.Where(s => s.Service.name != "SocialTFS").ToList();
+            w.Stop();
+            ILog log = LogManager.GetLogger("QueryLogger");
+            log.Info(" Elapsed time: " + w.Elapsed + ", select all service instances different from 'SocialTFS' to load them");
+
+            foreach (var item in sInstance)
             {
                 HtmlTableCell name = new HtmlTableCell();
                 HtmlTableCell service = new HtmlTableCell();
@@ -72,8 +82,12 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
 
             try
             {
+                Stopwatch w1 = Stopwatch.StartNew();
                 db.ServiceInstances.DeleteAllOnSubmit(db.ServiceInstances.Where(si => si.id == id));
                 db.SubmitChanges();
+                w1.Stop();
+                ILog log1 = LogManager.GetLogger("QueryLogger");
+                log1.Info(" Elapsed time: " + w1.Elapsed + ", remove all service instances");
                 isDeleted = true;
             }
             catch (Exception)
