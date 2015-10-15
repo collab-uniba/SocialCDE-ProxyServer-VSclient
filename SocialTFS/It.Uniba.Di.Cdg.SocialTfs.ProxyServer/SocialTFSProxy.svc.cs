@@ -690,6 +690,11 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer
             {
                 collectionUri = FindGithubRepository(user, interactiveObject);
             }
+            else if (collectionUri.Contains("git://"))
+            { 
+                //in this case the interactive object is an github issue
+                GetUsersIssuesInvolved(user, collectionUri, interactiveObject);
+            }
 
             Stopwatch w1 = Stopwatch.StartNew();
             List<int> hiddenAuthors = db.Hiddens.Where(h => h.user == user.id && h.timeline == HiddenType.Interactive.ToString()).Select(h => h.friend).ToList();
@@ -697,10 +702,10 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer
             ILog log1 = LogManager.GetLogger("QueryLogger");
             log1.Info(" Elapsed time: " + w1.Elapsed + ", user id: " + user.id + ", timeline: " + HiddenType.Interactive.ToString() + ", select all friends hidden by an user in the interactive timeline");
             Stopwatch w2 = Stopwatch.StartNew();
-            List<int> authors = db.InteractiveFriends.Where(f => f.ChosenFeature.user == user.id && f.collection == collectionUri && f.interactiveObject.EndsWith(interactiveObject) && f.objectType == objectType && !hiddenAuthors.Contains(f.user)).Select(f => f.user).ToList();
+            List<int> authors = db.InteractiveFriends.Where(f => /*f.ChosenFeature.user == user.id && */f.collection == collectionUri && f.interactiveObject.EndsWith(interactiveObject) && f.objectType == objectType && !hiddenAuthors.Contains(f.user)).Select(f => f.user).ToList();
             w2.Stop();
             ILog log2 = LogManager.GetLogger("QueryLogger");
-            log2.Info(" Elapsed time: " + w2.Elapsed + ", user id: " + user.id + ", collection of projects: " + collectionUri + ", interactive object: " + interactiveObject + ", object type: " + objectType + ", select all users whose posts can appear in the interactive timeline of an user");
+            log2.Info(" Elapsed time: " + w2.Elapsed + ", collection of projects: " + collectionUri + ", interactive object: " + interactiveObject + ", object type: " + objectType + ", select all users whose posts can appear in the interactive timeline of an user");
             WPost[] timeline = GetTimeline(db, user, authors, since, to);
 
             new Thread(thread => UpdateInteractiveFriend(user)).Start();
@@ -719,6 +724,78 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer
             log.Info(user.id + ",J,[" + authorsString + "]," + collectionUri + "," + objectType + "," + interactiveObject);
 
             return timeline;
+        }
+
+        private void GetUsersIssuesInvolved(User user, string collectionUri, string issueId)
+        {
+            ConnectorDataContext db = new ConnectorDataContext();
+            Boolean flag = false;
+            IService service = null;
+            ChosenFeature temp = null;
+            Stopwatch w = Stopwatch.StartNew();
+            List<ChosenFeature> cFeatures = db.ChosenFeatures.Where(cf => cf.user == user.id && cf.feature == FeaturesType.InteractiveNetwork.ToString()).ToList();
+            w.Stop();
+            ILog log = LogManager.GetLogger("QueryLogger");
+            log.Info(" Elapsed time: " + w.Elapsed + ", user id: " + user.id + ", feature: " + FeaturesType.InteractiveNetwork.ToString() + ", select all chosen features of an user with feature 'InteractiveNetwork'");
+            foreach (ChosenFeature chosenFeature in cFeatures)
+            {
+                Stopwatch w1 = Stopwatch.StartNew();
+                temp = db.ChosenFeatures.Where(cf => cf.id == chosenFeature.id).Single();
+                w1.Stop();
+                ILog log1 = LogManager.GetLogger("QueryLogger");
+                log1.Info(" Elapsed time: " + w1.Elapsed + ", chosen feature's id: " + chosenFeature.id + ", select a chosen feature to get users' issues involved");
+                if (temp.Registration.ServiceInstance.Service.name.Equals("GitHub"))
+                {
+                    service = ServiceFactory.getServiceOauth(temp.Registration.ServiceInstance.Service.name, temp.Registration.ServiceInstance.host, temp.Registration.ServiceInstance.consumerKey, temp.Registration.ServiceInstance.consumerSecret, temp.Registration.accessToken, null);
+                    flag = true;
+                }
+            }
+
+            if (flag)
+            {
+                //obtaining users involved in the issue
+                String[] users = (String[])service.Get(FeaturesType.UsersIssuesInvolved, new Object[2] { collectionUri, issueId });
+
+                SWorkItem workitem = new SWorkItem()
+                {
+                    Name = issueId,
+                    InvolvedUsers = users
+                };
+
+                Stopwatch w2 = Stopwatch.StartNew();
+                db.InteractiveFriends.DeleteAllOnSubmit(db.InteractiveFriends.Where(intFr => intFr.chosenFeature == temp.id && intFr.objectType == "WorkItem"));
+                db.SubmitChanges();
+                w2.Stop();
+                ILog log2 = LogManager.GetLogger("QueryLogger");
+                log2.Info(" Elapsed time: " + w2.Elapsed + ", chosen feature's id: " + temp.id + ", delete all interactive friends according to the feature and objecttype 'WorkItem'");
+                Stopwatch w3 = Stopwatch.StartNew();
+                IEnumerable<int> friendsInDb = db.Registrations.Where(r => workitem.InvolvedUsers.Contains(r.nameOnService) || workitem.InvolvedUsers.Contains(r.accessSecret + "\\" + r.nameOnService)).Select(r => r.user);
+                w3.Stop();
+                ILog log3 = LogManager.GetLogger("QueryLogger");
+                log3.Info(" Elapsed time: " + w3.Elapsed + ", select all users that are working on the same workitem(GetUsersIssuesInvolved)");
+                foreach (int friendInDb in friendsInDb)
+                {
+                    Stopwatch w4 = Stopwatch.StartNew();
+                    db.InteractiveFriends.InsertOnSubmit(new InteractiveFriend()
+                    {
+                        user = friendInDb,
+                        chosenFeature = temp.id,
+                        collection = collectionUri,
+                        interactiveObject = workitem.Name,
+                        objectType = "WorkItem"
+                    });
+                    w4.Stop();
+                    ILog log4 = LogManager.GetLogger("QueryLogger");
+                    log4.Info(" Elapsed time: " + w4.Elapsed + ", user id: " + friendInDb + ", chosen feature: " + temp.id + ", collection uri: " + collectionUri + ", interactive object: " + workitem.Name + ", insert an interactive friend which is working on a workitem in a pending state");
+                }
+
+                Stopwatch w8 = Stopwatch.StartNew();
+                db.SubmitChanges();
+                w8.Stop();
+                ILog log8 = LogManager.GetLogger("QueryLogger");
+                log8.Info(" Elapsed time: " + w8.Elapsed + ", insert the interactive friend");
+            }
+
         }
 
         private string FindGithubRepository(User user, string interactiveObject)
@@ -816,7 +893,7 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer
                     db.SubmitChanges();
                     w3.Stop();
                     ILog log3 = LogManager.GetLogger("QueryLogger");
-                    log3.Info(" Elapsed time: " + w3.Elapsed + ", chosen feature's id: " + temp.id + ", remove all old interactive friends");
+                    log3.Info(" Elapsed time: " + w3.Elapsed + ", chosen feature's id: " + temp.id + ", remove all old interactive friends according to the chosen feature");
 
                     foreach (SCollection collection in collections)
                     {
@@ -911,10 +988,10 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer
                 else
                 {
                     new Thread(delegate()
-                        {
-                            foreach (int item in authors)
-                                DownloadNewerPost(item);
-                        }).Start();
+                    {
+                        foreach (int item in authors)
+                            DownloadNewerPost(item);
+                    }).Start();
                 }
             }
             catch (InvalidOperationException)

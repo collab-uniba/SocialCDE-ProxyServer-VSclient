@@ -127,9 +127,9 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json.Net35, Version=4.0.2.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>JsonNet\Newtonsoft.Json.Net35.dll</HintPath>
+      <HintPath>JsonNet\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Linq" />
@@ -171,6 +171,9 @@
     <Content Include="AdminPanel\Styles\Site.css" />
     <Content Include="AdminPanel\Users.aspx" />
     <Content Include="AdminPanel\Weights.aspx" />
+    <Content Include="JsonNet\Newtonsoft.Json.dll" />
+    <Content Include="JsonNet\Newtonsoft.Json.pdb" />
+    <Content Include="JsonNet\Newtonsoft.Json.xml" />
     <Content Include="Log4Net\log4net.dll" />
     <Content Include="Log4Net\log4net.xml" />
     <Content Include="UpdateScript.sql" />
@@ -184,9 +187,6 @@
     <Content Include="Images\tfs.png" />
     <Content Include="Images\twitter.png" />
     <Content Include="Images\yammer.png" />
-    <Content Include="JsonNet\Newtonsoft.Json.Net35.dll" />
-    <Content Include="JsonNet\Newtonsoft.Json.Net35.pdb" />
-    <Content Include="JsonNet\Newtonsoft.Json.Net35.xml" />
     <Content Include="Script.sql" />
     <Content Include="SocialTFSProxy.svc" />
     <Content Include="Web.config" />
