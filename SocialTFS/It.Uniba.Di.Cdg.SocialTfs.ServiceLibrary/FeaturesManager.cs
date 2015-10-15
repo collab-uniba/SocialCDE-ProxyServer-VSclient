@@ -31,6 +31,7 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary
         UserTimelineOlderPosts,
         Repository,
         Labels,
+        UsersIssuesInvolved,
     }
 
     /// <summary>
@@ -105,6 +106,9 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary
                     break;
                 case FeaturesType.UserTimelineOlderPosts:
                     result = "Show older posts from user timeline";
+                    break;
+                case FeaturesType.UsersIssuesInvolved:
+                    result = "Show users involved in an issue";
                     break;
             }
 

@@ -40,8 +40,9 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary
             }
                 //exception used for seeing response error
             catch (System.Net.WebException e) 
-            {        
-                return String.Empty;
+            {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+                return "";
             }
         }
 

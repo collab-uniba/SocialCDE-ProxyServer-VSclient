@@ -143,12 +143,34 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.GitHub
                 case FeaturesType.Labels:
                     result = RegisterLabels((string) param[0]);
                     break;
+                case FeaturesType.UsersIssuesInvolved:
+                    result = UsersIssuesInvolved((string) param[0], (string) param[1]);
+                    break;
                 default:
                     throw new NotImplementedException("Use GetAvailableFeatures() to know the implemented methods");
                 
              }
 
             return result;
+        }
+
+        private String[] UsersIssuesInvolved(string githubRepositoryUrl, string issueId)
+        {
+            string githubRepositoryName = githubRepositoryUrl.Replace("git://github.com/", "");
+            
+            String jsonUser = WebRequest(_host + "user");
+            GitHubUser currentUser = ( jsonUser != "" ? JsonConvert.DeserializeObject<GitHubUser>(jsonUser) : null);
+            
+            string jsonIssue = WebRequest(_host + "repos/" + githubRepositoryName + "/issues/" + issueId);
+            GitHubIssue issue = (!String.IsNullOrEmpty(jsonIssue) ? JsonConvert.DeserializeObject<GitHubIssue>(jsonIssue) : null);
+
+            String[] usersInvolved = new String[0];
+            if (issue != null)
+            {
+                usersInvolved = getUsersIssue(issue);
+            }
+
+            return usersInvolved;
         }
 
         private Boolean RegisterLabels(string labels)
@@ -193,20 +215,51 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.GitHub
         private string[] GetAllPeopleInProject()
         {
             List<string> totalCollaborators = new List<string>();
-            System.Diagnostics.Debug.WriteLine("Posizione nulla " + ServiceFactory.GitHubLabels ); 
-            String jsonUser = WebRequest(_host + "user");
-            GitHubUser currentUser = ( jsonUser != "" ? JsonConvert.DeserializeObject<GitHubUser>(jsonUser) : null);
+         
+           // String jsonUser = WebRequest(_host + "user");
+           // GitHubUser currentUser = ( jsonUser != "" ? JsonConvert.DeserializeObject<GitHubUser>(jsonUser) : null);
+
+            //obtaining user's teams
+            string jsonTeam = WebRequest(_host + "user/teams");
+            GitHubTeam[] teams = (jsonTeam != null? JsonConvert.DeserializeObject<GitHubTeam[]>(jsonTeam) : null);
+
+            if (teams != null && teams.Length > 0)
+            {
+                for (int i = 0; i < teams.Length; i++)
+                {
+                    int id = teams[i].id;
+                    string jsonMembers = WebRequest(_host + "teams/" + id + "/members");
+
+                    if (!String.IsNullOrEmpty(jsonMembers))
+                    {
+                        GitHubUser[] teamUsers = JsonConvert.DeserializeObject<GitHubUser[]>(jsonMembers);
+
+                        if (teamUsers != null && teamUsers.Length > 0)
+                        {
+                            for (int j = 0; j < teamUsers.Length; j++)
+                            {
+                                totalCollaborators.Add(teamUsers[j].id.ToString());
+                            }
+                        }
+                    }
+
+                }
+            }
+            /*
             String jsonUserRepositories = ( currentUser != null ? WebRequest(currentUser.repos_url) : null);
-            GitHubRepositories[] publicRepositories = ( jsonUserRepositories != null ? JsonConvert.DeserializeObject<GitHubRepositories[]>(jsonUserRepositories) : new GitHubRepositories[0]);
+            GitHubRepositories[] userRepositories = ( jsonUserRepositories != null ? JsonConvert.DeserializeObject<GitHubRepositories[]>(jsonUserRepositories) : new GitHubRepositories[0]);
             String jsonOrganizations = ( currentUser != null ? WebRequest(currentUser.organizations_url) : null);
             GitHubOrganization[] organizations = ( jsonOrganizations != null ? JsonConvert.DeserializeObject<GitHubOrganization[]>(jsonOrganizations) : new GitHubOrganization[0]);
 
-            if (publicRepositories.Length > 0)
+
+            // Aggiungo tutti i collaboratori di tutti i progetti in l'utente è coinvolto
+            if (userRepositories != null && userRepositories.Length > 0)
             {
-                for (int i = 0; i < publicRepositories.Length; i++)
+                for (int i = 0; i < userRepositories.Length; i++)
                 {
-                    string url = (publicRepositories[i].collaborators_url.Contains('{') ? publicRepositories[i].collaborators_url.Substring(0, findCharacter('{', publicRepositories[i].collaborators_url)) : publicRepositories[i].collaborators_url);
-                    string jsonCollaborators = WebRequest(url);
+                    //string collaboratorsUrl = (userRepositories[i].collaborators_url.Contains('{') ? userRepositories[i].collaborators_url.Substring(0, findCharacter('{', userRepositories[i].collaborators_url)) : userRepositories[i].collaborators_url);
+                    string contributorsUrl = userRepositories[i].contributors_url;
+                    string jsonCollaborators = WebRequest(contributorsUrl);
                     GitHubUser[] collaborators = ( jsonCollaborators != "" ? JsonConvert.DeserializeObject<GitHubUser[]>(jsonCollaborators) : new GitHubUser[0]);
 
                     for (int j = 0; j < collaborators.Length; j++)
@@ -220,29 +273,31 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.GitHub
                 }
             }
 
-
-            for (int i = 0; i < organizations.Length; i++)
+            // Aggiungo tutti i collaboratori di tutti i progetti di tutte le organizzazioni in l'utente è coinvolto
+            if (organizations != null)
             {
-                string url = (organizations[i].repos_url.Contains('{') ? organizations[i].repos_url.Substring(0, findCharacter('{', organizations[i].repos_url)) : organizations[i].repos_url);
-                String jsonOrgsRepositories = WebRequest(url);
-                GitHubRepositories[] repositories = ( jsonOrgsRepositories != "" ? JsonConvert.DeserializeObject<GitHubRepositories[]>(jsonOrgsRepositories) : new GitHubRepositories[0]);
-
-
-                for (int j = 0; j < repositories.Length; j++)
+                for (int i = 0; i < organizations.Length; i++)
                 {
-                    url = (repositories[j].collaborators_url.Contains('{') ? repositories[j].collaborators_url.Substring(0, findCharacter('{', repositories[j].collaborators_url)) : repositories[j].collaborators_url);
-                    string jsonCollaborators = WebRequest(url);
-                    GitHubUser[] collaborators = (jsonCollaborators != "" ? JsonConvert.DeserializeObject<GitHubUser[]>(jsonCollaborators) : new GitHubUser[0]);
+                    string orgsUrl = (organizations[i].repos_url.Contains('{') ? organizations[i].repos_url.Substring(0, findCharacter('{', organizations[i].repos_url)) : organizations[i].repos_url);
+                    String jsonOrgsRepositories = WebRequest(orgsUrl);
+                    GitHubRepositories[] repositories = (jsonOrgsRepositories != "" ? JsonConvert.DeserializeObject<GitHubRepositories[]>(jsonOrgsRepositories) : new GitHubRepositories[0]);
 
-                    for (int h = 0; h < collaborators.Length; h++)
+                    for (int j = 0; j < repositories.Length; j++)
                     {
-                        IUser user = collaborators[h];
+                        orgsUrl = (repositories[j].collaborators_url.Contains('{') ? repositories[j].collaborators_url.Substring(0, findCharacter('{', repositories[j].collaborators_url)) : repositories[j].collaborators_url);
+                        string jsonCollaborators = WebRequest(orgsUrl);
+                        GitHubUser[] collaborators = (jsonCollaborators != "" ? JsonConvert.DeserializeObject<GitHubUser[]>(jsonCollaborators) : new GitHubUser[0]);
 
-                        totalCollaborators.Add(user.Id.ToString());
-                        
+                        for (int h = 0; h < collaborators.Length; h++)
+                        {
+                            IUser user = collaborators[h];
+
+                            totalCollaborators.Add(user.Id.ToString());
+
+                        }
+
+
                     }
-
-
                 }
             }
 
@@ -250,7 +305,7 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.GitHub
             {
                 System.Diagnostics.Debug.WriteLine("Collaboratore n. " + i + " id " + totalCollaborators[i].ToString());
             }
-
+            */
             return totalCollaborators.Distinct().ToArray(); 
         }
 
@@ -259,14 +314,14 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.GitHub
             String jsonUser = WebRequest(_host + "user");
             GitHubUser currentUser = ( jsonUser != "" ?  JsonConvert.DeserializeObject<GitHubUser>(jsonUser) : null);
             String jsonUserRepositories = ( currentUser != null ? WebRequest(currentUser.repos_url) : null) ;
-            GitHubRepositories[] publicRepositories = (jsonUserRepositories != null && jsonUserRepositories != ""? JsonConvert.DeserializeObject<GitHubRepositories[]>(jsonUserRepositories) : new GitHubRepositories[0]);
+            GitHubRepositories[] userRepositories = (jsonUserRepositories != null && jsonUserRepositories != ""? JsonConvert.DeserializeObject<GitHubRepositories[]>(jsonUserRepositories) : new GitHubRepositories[0]);
             String jsonOrganizations = ( currentUser != null ? WebRequest(currentUser.organizations_url) : null);
             GitHubOrganization[] organizations = ( jsonOrganizations != null ? JsonConvert.DeserializeObject<GitHubOrganization[]>(jsonOrganizations) : new GitHubOrganization[0]);
 
             String url = String.Empty; 
     
 
-            foreach (GitHubRepositories repos in publicRepositories)
+            foreach (GitHubRepositories repos in userRepositories)
             {
                 url = (repos.commits_url.Contains('{') ? repos.commits_url.Substring(0, findCharacter('{', repos.commits_url)) : repos.commits_url);
                 String jsonUsersInvolved = WebRequest(url + "?path=" + interactiveObject);
@@ -301,7 +356,81 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.GitHub
 
         private SCollection[] GetInteractivePeople()
         {
-            
+            Contract.Requires(!String.IsNullOrEmpty(_host));
+            List<SCollection> collections = new List<SCollection>(); //to return
+
+            //obtaining user's teams
+            string jsonTeams = WebRequest(_host + "user/teams");
+            GitHubTeam[] userTeams = (!String.IsNullOrEmpty(jsonTeams)? JsonConvert.DeserializeObject<GitHubTeam[]>(jsonTeams): new GitHubTeam[0]);
+
+            string jsonRepositories = "";
+            GitHubRepositories[] repositories;
+            for (int i = 0; i < userTeams.Length; i++) 
+            {
+                //obtaining repositories' teams
+                jsonRepositories = WebRequest(userTeams[i].repositories_url);
+                repositories = (!String.IsNullOrEmpty(jsonRepositories)? JsonConvert.DeserializeObject<GitHubRepositories[]>(jsonRepositories) : new GitHubRepositories[0]);
+
+                for (int j = 0; j < repositories.Length; j++)
+                {
+                    SCollection collection = new SCollection();
+                    List<SFile> filesfounded = new List<SFile>();
+                    List<SWorkItem> issuesfounded = new List<SWorkItem>();
+                    List<GitHubObject> objects = new List<GitHubObject>();
+                    try
+                    {
+                        string urlFiles = (repositories[j].contents_url.Contains('{') ? repositories[j].contents_url.Substring(0, findCharacter('{', repositories[j].contents_url)) : repositories[j].contents_url);
+                        string jsonRootObjects = WebRequest(urlFiles);
+                        GitHubObject[] files = (!String.IsNullOrEmpty(jsonRootObjects) ? JsonConvert.DeserializeObject<GitHubObject[]>(jsonRootObjects) : new GitHubObject[0]);
+
+                        if (files.Length > 0)
+                        {
+                            objects.AddRange(files);
+                        }
+
+                        for (int k = 0; k < objects.Count; k++)
+                        {
+                            getRepositoriesFiles(ref objects, objects[k], ref k);
+                        }
+
+                        foreach (GitHubObject obj in objects)
+                        {
+                            //checking files
+                            SFile fileFounded = new SFile();
+                            List<string> usernameUserInvolved = new List<string>();
+                            fileFounded.Name = obj.path;
+                            String url = (repositories[j].commits_url.Contains('{') ? repositories[j].commits_url.Substring(0, findCharacter('{', repositories[j].commits_url)) : repositories[j].commits_url);
+                            String jsonUsersInvolved = WebRequest(url + "?path=" + obj.path);
+                            GitHubCommit[] tempCommit = (!String.IsNullOrEmpty(jsonUsersInvolved) ? JsonConvert.DeserializeObject<GitHubCommit[]>(jsonUsersInvolved) : new GitHubCommit[0]);
+
+                            for (int l = 0; l < tempCommit.Length; l++)
+                            {
+                                if (tempCommit[l].committer != null && tempCommit[l].author != null)
+                                {
+                                    usernameUserInvolved.Add(tempCommit[l].author.login);
+                                    usernameUserInvolved.Add(tempCommit[l].committer.login);
+                                }
+                            }
+
+                            fileFounded.InvolvedUsers = usernameUserInvolved.Distinct().ToArray();
+
+                            filesfounded.Add(fileFounded);
+                        }
+                    }
+                    catch (NullReferenceException e)
+                    {
+                        System.Diagnostics.Debug.WriteLine(e.Message);
+                    }
+
+                    collection.Uri = repositories[j].git_url;
+                    collection.Files = filesfounded.ToArray();
+                    collection.WorkItems = issuesfounded.ToArray();
+
+                    collections.Add(collection);
+                }
+            }
+            return collections.ToArray();
+          /*  
             List<GitHubObject> objects = new List<GitHubObject>();
             Dictionary<GitHubRepositories, List<GitHubObject>> dictionaryFiles = new Dictionary<GitHubRepositories, List<GitHubObject>>();
             
@@ -319,10 +448,10 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.GitHub
             publicRepositories = ( jsonUserRepositories != null ? JsonConvert.DeserializeObject<GitHubRepositories[]>(jsonUserRepositories) : null);
             jsonOrganizations = (currentUser != null? WebRequest(currentUser.organizations_url) : null);
             organizations = (jsonOrganizations != null ? JsonConvert.DeserializeObject<GitHubOrganization[]>(jsonOrganizations) : null);
-
-            if (publicRepositories != null && publicRepositories.Length > 0)
+        */
+            /*if (publicRepositories != null)
             { 
-                 string url = ( publicRepositories[0].contents_url.Contains('{') ? publicRepositories[0].contents_url.Substring(0,findCharacter('{',publicRepositories[0].contents_url)) : publicRepositories[0].contents_url );
+                /* string url = ( publicRepositories[0].contents_url.Contains('{') ? publicRepositories[0].contents_url.Substring(0,findCharacter('{',publicRepositories[0].contents_url)) : publicRepositories[0].contents_url );
                  String jsonRootObjects = WebRequest(url);
                  GitHubObject[] tempObjects = ( jsonRootObjects != "" ? JsonConvert.DeserializeObject<GitHubObject[]>(jsonRootObjects) : null);
                  if (tempObjects.Length > 0)
@@ -338,14 +467,14 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.GitHub
                  dictionaryFiles.Add(publicRepositories[0], objects);
 
                  if (publicRepositories.Length > 1)
-                 {
-                     for (int i = 1; i < publicRepositories.Length; i++)
+                 {*/
+                /*     for (int i = 0; i < publicRepositories.Length; i++)
                      {
                          objects = new List<GitHubObject>();
 
-                         url = (publicRepositories[0].contents_url.Contains('{') ? publicRepositories[0].contents_url.Substring(0, findCharacter('{', publicRepositories[0].contents_url)) : publicRepositories[0].contents_url);
-                         jsonRootObjects = WebRequest(url);
-                         tempObjects = (jsonRootObjects != "" ? JsonConvert.DeserializeObject<GitHubObject[]>(jsonRootObjects) : new GitHubObject[0]);
+                         string url = (publicRepositories[i].contents_url.Contains('{') ? publicRepositories[i].contents_url.Substring(0, findCharacter('{', publicRepositories[i].contents_url)) : publicRepositories[i].contents_url);
+                         string jsonRootObjects = WebRequest(url);
+                         GitHubObject[] tempObjects = (jsonRootObjects != "" ? JsonConvert.DeserializeObject<GitHubObject[]>(jsonRootObjects) : new GitHubObject[0]);
                          if (tempObjects.Length > 0)
                          {
                              objects.AddRange(tempObjects);
@@ -359,7 +488,7 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.GitHub
                          dictionaryFiles.Add(publicRepositories[i], objects);
                      }
                  }
-            }
+            
             if(organizations != null)
             {
                 for (int i = 0; i < organizations.Length; i++)
@@ -429,27 +558,19 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.GitHub
 
                 collection.Files = filesFounded.ToArray();
              
-                //taking all repositories from the dictionary
-                GitHubRepositories[] repositories = dictionaryFiles.Keys.ToArray();
+                //checking issues
                 List<SWorkItem> issuesFounded = new List<SWorkItem>();
-                for (int i = 0; i < repositories.Length; i++)
-                {
-                    //checking issues in the all repositories
-                    if (repositories[i].has_issues)
-                    {
-                        string issues_url = repositories[i].issues_url;
-                        string url = (issues_url.Contains('{') ? issues_url.Substring(0, findCharacter('{', issues_url)) : issues_url);
-                        String jsonIssues = WebRequest(url);
-                        GitHubIssue[] publicIssues = (jsonIssues != "" ? JsonConvert.DeserializeObject<GitHubIssue[]>(jsonIssues) : null);
+                string issues_url = pair.Key.issues_url;
+                issues_url = (issues_url.Contains('{') ? issues_url.Substring(0, findCharacter('{', issues_url)) : issues_url);
+                String jsonIssues = WebRequest(issues_url);
+                GitHubIssue[] publicIssues = (jsonIssues != "" ? JsonConvert.DeserializeObject<GitHubIssue[]>(jsonIssues) : new GitHubIssue[0]);
 
-                        foreach (GitHubIssue issue in publicIssues)
-                        {
-                                issuesFounded.Add(new SWorkItem() {
-                                Name = issue.title,
-                                InvolvedUsers = getUsersIssue(issue)
-                            });
-                        }
-                    }
+                foreach (GitHubIssue issue in publicIssues)
+                {
+                    issuesFounded.Add(new SWorkItem() {
+                        Name = issue.title,
+                        InvolvedUsers = getUsersIssue(issue)
+                    });
                 }
 
                 collection.WorkItems = issuesFounded.ToArray();  
@@ -459,9 +580,9 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.GitHub
                 
             }
           
-
-            return result.ToArray();
+            return result.ToArray();*/
         }
+
 
         private void getRepositoriesFiles(ref List<GitHubObject> objects, GitHubObject element, ref int index)
         {
@@ -490,7 +611,16 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.GitHub
             {
                 string url = (issues_url.Contains('{') ? issues_url.Substring(0, findCharacter('{', issues_url)) : issues_url);
                 String jsonIssues = WebRequest(url);
-                GitHubIssue[] publicIssues =  ( jsonIssues != "" ? JsonConvert.DeserializeObject<GitHubIssue[]>(jsonIssues) : null);
+
+                GitHubIssue[] publicIssues = new GitHubIssue[0];
+
+                //try catch for wrong deserialization (temporary solution)
+                try
+                {
+                    publicIssues = (jsonIssues != "" ? JsonConvert.DeserializeObject<GitHubIssue[]>(jsonIssues) : null);
+                }
+                catch (JsonSerializationException) { }
+                catch (Exception) { }
 
                 if (publicIssues != null && publicIssues.Length > 0)
                 {
@@ -858,13 +988,13 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.GitHub
         string   GetOAuthData(string Service_name, string host, string consumerKey, string consumerSecret, string accessToken)
         {
             if (string.IsNullOrEmpty(Service_name))
-            {
-                return "https://github.com/login/oauth/authorize?client_id=3984a3280445ea55db70";
+            {   
+                //scope "repo" used for getting informations about the teams
+                return "https://github.com/login/oauth/authorize?client_id=3984a3280445ea55db70&scope=repo";
             }
             else if (!string.IsNullOrEmpty(Service_name) && Service_name.Equals("GitHub"))
             {
 
-                System.Diagnostics.Debug.Print("Prova");
                 Dictionary<string, string> param = new Dictionary<string, string>();
                 param.Add("client_id", consumerKey);
                 param.Add("client_secret", consumerSecret);

@@ -29,7 +29,7 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.GitHub
     {
         public string comments_url { get; set; }
         public string url { get; set; }
-        public string milestone { get; set; }
+        public Object milestone { get; set; }
         public string state { get; set; }
         public GitHubUser user { get; set; }
         public GitHubUser assignee { get; set; }

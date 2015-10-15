@@ -75,9 +75,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.Services.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Newtonsoft.Json.Net35, Version=4.0.2.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>JsonNet\Newtonsoft.Json.Net35.dll</HintPath>
+      <HintPath>JsonNet\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -107,6 +107,7 @@
     <Compile Include="GitHub\GitHubOrganization.cs" />
     <Compile Include="GitHub\GitHubRepositories.cs" />
     <Compile Include="GitHub\GitHubService.cs" />
+    <Compile Include="GitHub\GitHubTeam.cs" />
     <Compile Include="GitHub\GitHubToken.cs" />
     <Compile Include="GitHub\GitHubUser.cs" />
     <Compile Include="IPost.cs" />
@@ -178,11 +179,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="JsonNet\Newtonsoft.Json.Net35.dll" />
-    <Content Include="JsonNet\Newtonsoft.Json.Net35.pdb" />
-    <Content Include="JsonNet\Newtonsoft.Json.Net35.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\It.Uniba.Di.Cdg.SocialTfs.OAuthLibrary\It.Uniba.Di.Cdg.SocialTfs.OAuthLibrary.csproj">
       <Project>{00640305-5A8D-46FB-AC7D-7AE68A04B1B3}</Project>
       <Name>It.Uniba.Di.Cdg.SocialTfs.OAuthLibrary</Name>
@@ -194,6 +190,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="JsonNet\Newtonsoft.Json.dll" />
+    <Content Include="JsonNet\Newtonsoft.Json.pdb" />
+    <Content Include="JsonNet\Newtonsoft.Json.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

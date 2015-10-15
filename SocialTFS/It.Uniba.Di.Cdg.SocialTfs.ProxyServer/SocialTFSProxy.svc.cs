@@ -574,10 +574,14 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer
             if (String.IsNullOrEmpty(collectionUri))
             {
                 collectionUri = FindGithubRepository(user, interactiveObject);
+
+            } else if (collectionUri.Contains("git://")) {  //in this case the interactive object is an github issue
+                GetUsersIssuesInvolved(user, collectionUri, interactiveObject);
             }
 
+
             List<int> hiddenAuthors = db.Hiddens.Where(h => h.user == user.id && h.timeline == HiddenType.Interactive.ToString()).Select(h => h.friend).ToList();
-            List<int> authors = db.InteractiveFriends.Where(f => f.ChosenFeature.user == user.id && f.collection == collectionUri && f.interactiveObject.EndsWith(interactiveObject) && f.objectType == objectType && !hiddenAuthors.Contains(f.user)).Select(f => f.user).ToList();
+            List<int> authors = db.InteractiveFriends.Where(f => /*f.ChosenFeature.user == user.id &&*/ f.collection == collectionUri && f.interactiveObject.EndsWith(interactiveObject) && f.objectType == objectType && !hiddenAuthors.Contains(f.user)).Select(f => f.user).ToList();
             WPost[] timeline = GetTimeline(db, user, authors, since, to);
 
             new Thread(thread => UpdateInteractiveFriend(user)).Start();
@@ -596,6 +600,56 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer
             log.Info(user.id + ",J,[" + authorsString + "]," + collectionUri + "," + objectType + "," + interactiveObject);
 
             return timeline;
+        }
+
+        private void GetUsersIssuesInvolved(User user, string collectionUri, string issueId)
+        {
+            ConnectorDataContext db = new ConnectorDataContext();
+            Boolean flag = false;
+            IService service = null;
+            ChosenFeature temp = null;
+            foreach (ChosenFeature chosenFeature in db.ChosenFeatures.Where(cf => cf.user == user.id && cf.feature == FeaturesType.InteractiveNetwork.ToString()))
+            {
+                temp = db.ChosenFeatures.Where(cf => cf.id == chosenFeature.id).Single();
+
+                if (temp.Registration.ServiceInstance.Service.name.Equals("GitHub"))
+                {
+                    service = ServiceFactory.getServiceOauth(temp.Registration.ServiceInstance.Service.name, temp.Registration.ServiceInstance.host, temp.Registration.ServiceInstance.consumerKey, temp.Registration.ServiceInstance.consumerSecret, temp.Registration.accessToken, null);
+                    flag = true;
+                }
+            }
+
+            if (flag)
+            {
+                //obtaining users involved in the issue
+                String[] users = (String[])service.Get(FeaturesType.UsersIssuesInvolved, new Object[2] { collectionUri, issueId });
+                 
+                SWorkItem workitem = new SWorkItem()
+                        {
+                            Name = issueId,
+                            InvolvedUsers = users
+                        };
+
+                
+                db.InteractiveFriends.DeleteAllOnSubmit(db.InteractiveFriends.Where(intFr => intFr.chosenFeature == temp.id && intFr.objectType == "WorkItem"));
+                db.SubmitChanges();
+
+                IEnumerable<int> friendsInDb = db.Registrations.Where(r => workitem.InvolvedUsers.Contains(r.nameOnService) || workitem.InvolvedUsers.Contains(r.accessSecret + "\\" + r.nameOnService)).Select(r => r.user);
+                foreach (int friendInDb in friendsInDb)
+                {
+                    db.InteractiveFriends.InsertOnSubmit(new InteractiveFriend()
+                    {
+                        user = friendInDb,
+                        chosenFeature = temp.id,
+                        collection = collectionUri,
+                        interactiveObject = workitem.Name,
+                        objectType = "WorkItem"
+                    });
+                }
+
+                db.SubmitChanges();
+            }
+          
         }
 
         private string FindGithubRepository(User user, string interactiveObject)
