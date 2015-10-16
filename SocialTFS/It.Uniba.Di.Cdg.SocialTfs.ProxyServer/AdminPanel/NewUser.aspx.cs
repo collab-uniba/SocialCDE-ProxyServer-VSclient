@@ -4,6 +4,9 @@ using System.Web.Security;
 using System.Xml.Linq;
 using System.Xml;
 using System.IO;
+using System.Diagnostics;
+using log4net;
+using log4net.Config;
 
 namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
 {
@@ -38,10 +41,20 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
                         email = item.InnerText,
                         password = db.Encrypt(passwd)
                     };
+                    Stopwatch w = Stopwatch.StartNew();
                     db.Users.InsertOnSubmit(user);
+                    w.Stop();
+                    ILog log = LogManager.GetLogger("QueryLogger");
+                    log.Info(" Elapsed time: " + w.Elapsed + ", insert the user in a pending state");
 
                     if (WebUtility.SendEmail(item.InnerText, "SocialTFS invitation", GetBody(item.InnerText, passwd), true))
+                    {
+                        Stopwatch w1 = Stopwatch.StartNew();
                         db.SubmitChanges();
+                        w1.Stop();
+                        ILog log1 = LogManager.GetLogger("QueryLogger");
+                        log1.Info(" Elapsed time: " + w1.Elapsed + ", send mail for registration");
+                    }
                     else
                         mailError.Add(item.InnerText);
                 }

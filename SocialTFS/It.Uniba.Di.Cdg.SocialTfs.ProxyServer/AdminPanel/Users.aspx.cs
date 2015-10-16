@@ -3,6 +3,9 @@ using System.Linq;
 using System.Web.UI.HtmlControls;
 using System.Xml.Linq;
 using System.Web.UI;
+using System.Diagnostics;
+using log4net;
+using log4net.Config;
 
 namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
 {
@@ -28,13 +31,22 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
         {
             ConnectorDataContext db = new ConnectorDataContext();
 
+            Stopwatch w = Stopwatch.StartNew();
             var users =
                 (from usr in db.Users
                  where !usr.isAdmin
                  orderby usr.username
                  select usr).Skip((page - 1) * userPerPage).Take(userPerPage);
+            w.Stop();
+            ILog log = LogManager.GetLogger("QueryLogger");
+            log.Info(" Elapsed time: " + w.Elapsed + ", select all users");
 
-            if (!users.Any() && page > 1)
+            Stopwatch w11 = Stopwatch.StartNew();
+            bool utente=users.Any();
+            w11.Stop();
+            ILog log11 = LogManager.GetLogger("QueryLogger");
+            log11.Info(" Elapsed time: " + w11.Elapsed + ", check if the select user query returns at least one user");
+            if (!utente && page > 1)
                 Response.Redirect("Users.aspx?page=" + (page - 1).ToString());
 
             foreach (var item in users)
@@ -55,11 +67,23 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
                 active.Attributes.Add("class", "center");
                 active.Controls.Add(img);
                 statuses.Attributes.Add("class", "center");
+                Stopwatch w1 = Stopwatch.StartNew();
                 statuses.InnerText = db.Posts.Where(p => p.ChosenFeature.user == item.id).Count().ToString();
+                w1.Stop();
+                ILog log1 = LogManager.GetLogger("QueryLogger");
+                log1.Info(" Elapsed time: " + w1.Elapsed + ", count the number of posts of an user");
                 followings.Attributes.Add("class", "center");
+                Stopwatch w2 = Stopwatch.StartNew();
                 followings.InnerText = db.StaticFriends.Where(sf => sf.User == item).Count().ToString();
+                w2.Stop();
+                ILog log2 = LogManager.GetLogger("QueryLogger");
+                log2.Info(" Elapsed time: " + w2.Elapsed + ", count the number of static friend of an user");
                 followers.Attributes.Add("class", "center");
+                Stopwatch w3 = Stopwatch.StartNew();
                 followers.InnerText = db.StaticFriends.Where(sf => sf.Friend == item).Count().ToString();
+                w3.Stop();
+                ILog log3 = LogManager.GetLogger("QueryLogger");
+                log3.Info(" Elapsed time: " + w3.Elapsed + ", count the number of users friend of an user");
 
                 HtmlInputButton deleteBT = new HtmlInputButton();
                 deleteBT.Attributes.Add("title", "Delete " + item.username);
@@ -80,6 +104,7 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
                 UserTable.Rows.Add(tr);
             }
 
+            Stopwatch w4 = Stopwatch.StartNew();
             var alphabet =
                 (from usr in db.Users
                  where !usr.isAdmin
@@ -87,6 +112,9 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
                  group usr by usr.username.ToUpper().Substring(0, 1) into userGroup
                  select new { firstLetter = userGroup.Key, user = userGroup })
                  .ToDictionary(firstLetter => firstLetter.firstLetter, firstLetter => firstLetter.user.Count());
+            w4.Stop();
+            ILog log4 = LogManager.GetLogger("QueryLogger");
+            log4.Info(" Elapsed time: " + w4.Elapsed + ", select a dictionary of first letters from users");
 
             int sum = 0;
 
@@ -135,16 +163,36 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
 
             try
             {
+                Stopwatch w = Stopwatch.StartNew();
                 db.InteractiveFriends.DeleteAllOnSubmit(db.InteractiveFriends.Where(q => q.user == id));
                 db.SubmitChanges();
+                w.Stop();
+                ILog log = LogManager.GetLogger("QueryLogger");
+                log.Info(" Elapsed time: " + w.Elapsed + ", remove all interactive friends of an user");
+                Stopwatch w2 = Stopwatch.StartNew();
                 db.DynamicFriends.DeleteAllOnSubmit(db.DynamicFriends.Where(q => q.user == id));
                 db.SubmitChanges();
+                w2.Stop();
+                ILog log2 = LogManager.GetLogger("QueryLogger");
+                log2.Info(" Elapsed time: " + w2.Elapsed + ", remove all dynamic friends of an user");
+                Stopwatch w3 = Stopwatch.StartNew();
                 db.StaticFriends.DeleteAllOnSubmit(db.StaticFriends.Where(q => q.user == id));
                 db.SubmitChanges();
+                w3.Stop();
+                ILog log3 = LogManager.GetLogger("QueryLogger");
+                log3.Info(" Elapsed time: " + w3.Elapsed + ", remove all static friends of an user");
+                Stopwatch w4 = Stopwatch.StartNew();
                 db.Suggestions.DeleteAllOnSubmit(db.Suggestions.Where(q => q.user == id));
                 db.SubmitChanges();
+                w4.Stop();
+                ILog log4 = LogManager.GetLogger("QueryLogger");
+                log4.Info(" Elapsed time: " + w4.Elapsed + ", remove all suggestions of an user");
+                Stopwatch w1 = Stopwatch.StartNew();
                 db.Users.DeleteAllOnSubmit(db.Users.Where(u => u.id == id));
                 db.SubmitChanges();
+                w1.Stop();
+                ILog log1 = LogManager.GetLogger("QueryLogger");
+                log1.Info(" Elapsed time: " + w1.Elapsed + ", remove the user");
                 isDeleted = true;
             }
             catch (Exception e)
