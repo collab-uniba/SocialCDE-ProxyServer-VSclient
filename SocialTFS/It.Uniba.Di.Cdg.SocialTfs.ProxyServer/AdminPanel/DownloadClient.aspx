@@ -37,16 +37,16 @@
         <div class="main">
             
     <h2>Client Download</h2>
-    <p>Download the latest version of <b>SocialTFS</b> Visual Studio Add-In. If you need guidance for the installation, please refer to this <a href="http://socialtfs.codeplex.com/wikipage?title=How%20to%20install%20SocialTFS&referringTitle=Documentation#Client">guide</a>.</p>
+    <p>Download the latest version of <b>SocialCDE</b> Visual Studio Add-In. If you need guidance for the installation, please refer to this <a href="http://socialtfs.codeplex.com/wikipage?title=How%20to%20install%20SocialTFS&referringTitle=Documentation#Client">guide</a>.</p>
     <div class="download">
     
-        <a href="Downloads/SocialTFSClient.exe">Download</a>
+        <a href="Downloads/SocialCDEClient.exe">Download</a>
         
     </div>
     <p>Download the latest version of <b>SocialCDE for Eclipse</b> plugin. If you need guidance for the installation, please refer to this <a href="https://github.com/collab-uniba/socialcde4eclipse/wiki/How-to-install-SocialCDE">guide</a></p>
      <div class="download">
     
-        <a href="Downloads/SocialCDEforEclipse.jar">Download</a>
+        <a href="https://github.com/collab-uniba/socialcde4eclipse/blob/master/it.uniba.di.socialCDEforEclipse/downloadClient/SocialCDEforEclipse.jar?raw=true">Download</a>
         
     </div>
     <h2>The Project</h2>
