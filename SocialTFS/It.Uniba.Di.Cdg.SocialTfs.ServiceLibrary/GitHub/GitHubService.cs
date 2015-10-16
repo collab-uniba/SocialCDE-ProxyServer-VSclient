@@ -315,7 +315,7 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.GitHub
             GitHubUser currentUser = ( jsonUser != "" ?  JsonConvert.DeserializeObject<GitHubUser>(jsonUser) : null);
             String jsonUserRepositories = ( currentUser != null ? WebRequest(currentUser.repos_url) : null) ;
             GitHubRepositories[] userRepositories = (jsonUserRepositories != null && jsonUserRepositories != ""? JsonConvert.DeserializeObject<GitHubRepositories[]>(jsonUserRepositories) : new GitHubRepositories[0]);
-            String jsonOrganizations = ( currentUser != null ? WebRequest(currentUser.organizations_url) : null);
+            String jsonOrganizations = (WebRequest(_host + "user/orgs"));
             GitHubOrganization[] organizations = ( jsonOrganizations != null ? JsonConvert.DeserializeObject<GitHubOrganization[]>(jsonOrganizations) : new GitHubOrganization[0]);
 
             String url = String.Empty; 
@@ -759,7 +759,7 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ServiceLibrary.GitHub
             currentUser = (jsonUser != null && jsonUser != "" ? JsonConvert.DeserializeObject<GitHubUser>(jsonUser) : null);
             jsonUserRepositories =(currentUser != null?   WebRequest(currentUser.repos_url) : null);
             publicRepositories = (jsonUserRepositories != null && jsonUserRepositories  != "" ? JsonConvert.DeserializeObject<GitHubRepositories[]>(jsonUserRepositories) : null);
-            jsonOrganizations = ( currentUser != null ? WebRequest(currentUser.organizations_url) : null);
+            jsonOrganizations = WebRequest(_host + "user/orgs");
             organizations = (jsonOrganizations != null && jsonOrganizations  != "" ? JsonConvert.DeserializeObject<GitHubOrganization[]>(jsonOrganizations) : null);
 
             if (publicRepositories != null)

@@ -47,7 +47,7 @@ namespace It.Uniba.Di.Cdg.SocialTfs.ProxyServer.AdminPanel
                     ILog log = LogManager.GetLogger("QueryLogger");
                     log.Info(" Elapsed time: " + w.Elapsed + ", insert the user in a pending state");
 
-                    if (WebUtility.SendEmail(item.InnerText, "SocialTFS invitation", GetBody(item.InnerText, passwd), true))
+                    if (WebUtility.SendEmail(item.InnerText, "SocialCDE invitation", GetBody(item.InnerText, passwd), true))
                     {
                         Stopwatch w1 = Stopwatch.StartNew();
                         db.SubmitChanges();
